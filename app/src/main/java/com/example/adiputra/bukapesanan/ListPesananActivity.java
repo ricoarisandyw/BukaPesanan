@@ -5,13 +5,16 @@ import android.content.Intent;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListAdapter;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,25 +43,37 @@ public class ListPesananActivity extends AppCompatActivity {
             }
         });
 
-
-
         pAdapter = new ListPesananAdapter(persons, context);
         recyclerView = (RecyclerView) findViewById(R.id.listPesanan);
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
+        RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(ListPesananActivity.this, 2);
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(pAdapter);
+
+//        recyclerView.addOnItemTouchListener(
+//                new RecyclerItemClickListener(context, recyclerView ,new RecyclerItemClickListener.OnItemClickListener() {
+//                    @Override public void onItemClick(View view, int position) {
+//                        // do whatever
+//                    }
+//
+//                    @Override public void onLongItemClick(View view, int position) {
+//                        // do whatever
+//                    }
+//                })
+//        );
 
         initializeData();
     }
 
     private void initializeData(){
-        persons.add(new Person("Emma Wilson", "23 years old", R.drawable.ic_image_black_24dp));
-        persons.add(new Person("Lavery Maiss", "25 years old", R.drawable.ic_image_black_24dp));
-        persons.add(new Person("Lillie Watts", "35 years old", R.drawable.ic_image_black_24dp));
-        persons.add(new Person("Emma Wilson", "23 years old", R.drawable.ic_image_black_24dp));
-        persons.add(new Person("Lavery Maiss", "25 years old", R.drawable.ic_image_black_24dp));
-        persons.add(new Person("Lillie Watts", "35 years old", R.drawable.ic_image_black_24dp));
+        persons.add(new Person("Tas Cantik", "100000-200000", R.drawable.tas));
+        persons.add(new Person("Tas Cantik", "100000-200000", R.drawable.tas));
+        persons.add(new Person("Tas Cantik", "100000-200000", R.drawable.tas));
+        persons.add(new Person("Tas Cantik", "100000-200000", R.drawable.tas));
+        persons.add(new Person("Tas Cantik", "100000-200000", R.drawable.tas));
+        persons.add(new Person("Tas Cantik", "100000-200000", R.drawable.tas));
+        persons.add(new Person("Tas Cantik", "100000-200000", R.drawable.tas));
+        persons.add(new Person("Tas Cantik", "100000-200000", R.drawable.tas));
         pAdapter.notifyDataSetChanged();
     }
 }
