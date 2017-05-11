@@ -101,15 +101,6 @@
             >
         </android.support.v7.widget.AppCompatSpinner>
 
-        <!--<android.support.design.widget.TextInputEditText-->
-        <!--android:id="@+id/etKategori"-->
-        <!--android:textSize="@dimen/textInput"-->
-        <!--android:textColor="@color/textBukaLapak"-->
-        <!--android:layout_below="@+id/tvKategori"-->
-        <!--android:textColorHint="@color/textHint"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content" />-->
-
         <android.support.v7.widget.AppCompatTextView
             android:id="@+id/tvDeskripsi"
             android:layout_below="@+id/spinnerKategori"

@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.example.adiputra.bukapesanan.ListPesananActivity">
 
     <android.support.v7.widget.Toolbar
@@ -60,21 +61,17 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        tools:showIn="@layout/activity_list_pesanan"
+        tools:context=".ListPesananActivity"
         android:layout_below="@+id/toolbar">
 
-        <ScrollView
+        <android.support.v7.widget.RecyclerView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:id="@+id/listPesanan">
 
-            <android.support.v7.widget.RecyclerView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/listPesanan">
-
-            </android.support.v7.widget.RecyclerView>
-
-        </ScrollView>
+        </android.support.v7.widget.RecyclerView>
 
     </RelativeLayout>
 
