@@ -14,6 +14,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Button sentBtn = (Button) findViewById(R.id.btnLogin);
+        Button formBtn = (Button) findViewById(R.id.btnForm);
+        Button listBtn = (Button) findViewById(R.id.btnList);
+
         sentBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -21,5 +24,22 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+        formBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this, InputPesananActivity.class);
+                startActivity(i);
+            }
+        });
+
+        listBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this, ListPesananActivity.class);
+                startActivity(i);
+            }
+        });
+
     }
 }
