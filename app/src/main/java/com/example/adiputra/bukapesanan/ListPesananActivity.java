@@ -2,6 +2,7 @@ package com.example.adiputra.bukapesanan;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,10 +11,14 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListAdapter;
+import android.widget.PopupWindow;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -25,6 +30,7 @@ public class ListPesananActivity extends AppCompatActivity {
     private List<Person> persons = new ArrayList<>();
     private RecyclerView recyclerView;
     private ListPesananAdapter pAdapter;
+    public static PopupWindow mPopupWindow;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,7 +71,7 @@ public class ListPesananActivity extends AppCompatActivity {
         initializeData();
     }
 
-    private void initializeData(){
+    private void initializeData() {
         persons.add(new Person("Tas Cantik", "100000-200000", R.drawable.tas));
         persons.add(new Person("Tas Cantik", "100000-200000", R.drawable.tas));
         persons.add(new Person("Tas Cantik", "100000-200000", R.drawable.tas));
@@ -76,5 +82,28 @@ public class ListPesananActivity extends AppCompatActivity {
         persons.add(new Person("Tas Cantik", "100000-200000", R.drawable.tas));
         pAdapter.notifyDataSetChanged();
     }
-}
 
+//    public void showPopup() {
+//    }
+
+//    public PopupWindow pw;
+//    public static void showPopup() {
+//        try {
+//            LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+//            View layout = inflater.inflate(R.layout.popup, (ViewGroup) findViewById(R.id.popup_1));
+//            pw = new PopupWindow(layout, 300, 370, true);
+//            pw.showAtLocation(layout, Gravity.CENTER, 0, 0);
+//            Button Close = (Button) layout.findViewById(R.id.close_popup);
+//            Close.setOnClickListener(cancel_button);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//    }
+//
+//    public View.OnClickListener cancel_button = new View.OnClickListener() {
+//        public void onClick(View v) {
+//            pw.dismiss();
+//        }
+//    };
+
+}

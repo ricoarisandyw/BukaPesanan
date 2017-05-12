@@ -24,6 +24,10 @@ import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import org.json.JSONObject;
+
+import java.util.HashMap;
+
 public class InputPesananActivity extends AppCompatActivity {
 
     private static final String CATEGORIES = "https://api.bukalapak.com/v2/categories.json";
@@ -88,7 +92,7 @@ public class InputPesananActivity extends AppCompatActivity {
     }
 
     private void fetchPosts() {
-        StringRequest request = new StringRequest(Request.Method.GET, CATEGORIES, onPostsLoaded, onPostsError);
+        StringRequest request = new StringRequest(Request.Method.POST, CATEGORIES, onPostsLoaded, onPostsError);
         requestQueue.add(request);
     }
 
