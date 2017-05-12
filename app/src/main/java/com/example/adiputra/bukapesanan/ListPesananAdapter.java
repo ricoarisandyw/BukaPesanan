@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -32,13 +33,14 @@ public class ListPesananAdapter extends RecyclerView.Adapter<ListPesananAdapter.
             personName = (TextView)itemView.findViewById(R.id.person_name);
             personAge = (TextView)itemView.findViewById(R.id.person_age);
             personPhoto = (ImageView)itemView.findViewById(R.id.person_photo);
+            cv.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(v.getContext(), "Position:" + Integer.toString(getPosition())+ "Name: "+getItemViewType(), Toast.LENGTH_SHORT).show();
+                }
+            });
         }
     }
-//    List<Person> persons;
-//
-//    ListPesananAdapter(List<Person> persons){
-//        this.persons = persons;
-//    }
 
     public ListPesananAdapter(java.util.List persons, Context context) {
         this.persons = persons;
@@ -50,10 +52,15 @@ public class ListPesananAdapter extends RecyclerView.Adapter<ListPesananAdapter.
         return persons.size();
     }
 
+    //private final View.OnClickListener mOnClickListener = new MyOnClickListener();
+
     @Override
     public PersonViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.list_pesanan, viewGroup, false);
         PersonViewHolder pvh = new PersonViewHolder(v);
+
+        //v.setOnClickListener(mOnClickListener);
+
         return pvh;
     }
 

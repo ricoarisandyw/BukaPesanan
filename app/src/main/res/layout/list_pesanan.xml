@@ -1,61 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:padding="@dimen/_10sdp"
+    android:paddingTop="@dimen/_10sdp"
+    android:paddingLeft="@dimen/_15sdp"
     android:layout_width="match_parent"
     android:background="?android:attr/selectableItemBackground"
     android:layout_height="wrap_content">
 
     <android.support.v7.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_80sdp"
+        android:layout_width="@dimen/_130sdp"
+        android:layout_height="wrap_content"
         android:id="@+id/cv"
-        android:padding="10dp"
-        >
+        android:clickable="true"
+        android:focusableInTouchMode="true"
+        android:padding="0dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/border_cardview"
             >
 
             <ImageView
-                android:layout_width="@dimen/_80sdp"
-                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_110sdp"
                 android:id="@+id/person_photo"
-                android:background="@drawable/ic_image_black_24dp"
+                android:paddingTop="@dimen/_10sdp"
+                android:src="@drawable/tas"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginRight="16dp"
-                />
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true" />
 
             <TextView
-                android:layout_marginTop="@dimen/_10sdp"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:paddingTop="@dimen/_10sdp"
+                android:paddingLeft="@dimen/_10sdp"
+                android:paddingRight="@dimen/_10sdp"
                 android:id="@+id/person_name"
                 android:text="TAS CANTIK"
-                android:layout_toRightOf="@+id/person_photo"
-                android:layout_alignParentTop="true"
-                android:textSize="30sp"
+                android:layout_below="@+id/person_photo"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="@color/textWhite"
+                android:background="@color/textBukaLapak"
                 />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/person_age"
                 android:text="Berhadiah motor"
-                android:layout_toRightOf="@+id/person_photo"
                 android:layout_below="@+id/person_name"
+                android:textColor="@color/textWhite"
+                android:background="@color/textBukaLapak"
+                android:padding="@dimen/_10sdp"
                 />
-
-            <ImageButton
-                android:id="@+id/btntar"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:background="@drawable/ic_star_border_black_24dp"
-                android:layout_width="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_height="wrap_content" />
 
         </RelativeLayout>
 
