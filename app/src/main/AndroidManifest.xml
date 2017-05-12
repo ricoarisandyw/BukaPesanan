@@ -26,7 +26,8 @@
             android:name=".LoginActivity"
             android:label="@string/title_activity_login" />
         <activity android:name=".InputPesananActivity" />
-        <activity android:name=".ListPesananActivity"></activity>
+        <activity android:name=".ListPesananActivity"/>
+        <activity android:name=".RumahActivity"/>
     </application>
 
 </manifest>

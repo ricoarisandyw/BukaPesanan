@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
         Button sentBtn = (Button) findViewById(R.id.btnLogin);
         Button formBtn = (Button) findViewById(R.id.btnForm);
         Button listBtn = (Button) findViewById(R.id.btnList);
+        Button homeBtn = (Button) findViewById(R.id.btnHome);
 
         sentBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -37,6 +38,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(MainActivity.this, ListPesananActivity.class);
+                startActivity(i);
+            }
+        });
+
+        homeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this, RumahActivity.class);
                 startActivity(i);
             }
         });
