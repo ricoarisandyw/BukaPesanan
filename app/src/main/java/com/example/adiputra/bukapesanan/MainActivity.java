@@ -34,6 +34,10 @@ public class MainActivity extends AppCompatActivity {
     private RequestQueue requestQueue;
     private Gson gson;
 
+    //VARIABEL GET ID AND TOKEN
+    public String UserId;
+    public String UserToken;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
         Button sentBtn = (Button) findViewById(R.id.btnLogin);
         Button formBtn = (Button) findViewById(R.id.btnForm);
         Button listBtn = (Button) findViewById(R.id.btnList);
+        final Button userInfoBtn = (Button) findViewById(R.id.btnUserInfo);
         final TextView tvUser = (TextView) findViewById(R.id.tvUser);
 
         sentBtn.setOnClickListener(new View.OnClickListener() {
@@ -68,6 +73,16 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        userInfoBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this, UserInfoActivity.class);
+                i.putExtra("UserId",String.valueOf(UserId));
+                i.putExtra("UserToken",UserToken);
+                startActivity(i);
+            }
+        });
+
         requestQueue = Volley.newRequestQueue(this);
         requestQueue = Volley.newRequestQueue(getApplicationContext());
         GsonBuilder gsonBuilder = new GsonBuilder();
@@ -89,9 +104,12 @@ public class MainActivity extends AppCompatActivity {
                     public void onResponse(String response) {
                         // response
                         Log.i("Response", response);
-                        ModelGetUser mgu = gson.fromJson(response, ModelGetUser.class);
+                        final ModelGetUser mgu = gson.fromJson(response, ModelGetUser.class);
                         tvUser.setText("SELAMAT DATANG : "+ mgu.getUser_name());
-                        Toast.makeText(MainActivity.this, "Token : "+mgu.getToken(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, "Token : "+mgu.getToken()+"\n ID : "+mgu.getUser_id(), Toast.LENGTH_SHORT).show();
+                        UserId = String.valueOf(mgu.getUser_id());
+                        UserToken = mgu.getToken();
+
                     }
                 },
                 new Response.ErrorListener()
@@ -100,6 +118,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onErrorResponse(VolleyError error) {
                         // TODO Auto-generated method stub
                         Log.i("ERROR","error => "+error.toString());
+                        Toast.makeText(MainActivity.this, "Cek Koneksi Internet", Toast.LENGTH_SHORT).show();
                     }
                 }
         ) {
@@ -111,7 +130,9 @@ public class MainActivity extends AppCompatActivity {
                 params.put("Authorization", auth);
                 return params;
             }
-//            @Override
+        };
+        requestQueue.add(req);
+        //            @Override
 //            public Map<String, String> getHeaders() throws AuthFailureError {
 //                Map<String, String> headers = new HashMap<String, String>();
 //                //headers.put("username:password", "adiputra_utama:adiputra17");
@@ -122,7 +143,6 @@ public class MainActivity extends AppCompatActivity {
 //                headers.put("password", "adiputra17");
 //                return headers;
 //            }
-        };
 
 //        JsonObjectRequest req = new JsonObjectRequest(URL, new JSONObject(params),
 //            new Response.Listener<JSONObject>() {
@@ -142,14 +162,14 @@ public class MainActivity extends AppCompatActivity {
 //            }){
 //
 //            @Override
-//            public Map<String, String> getHeaders() throws AuthFailureError {
-//                HashMap<String, String> headers = new HashMap<String, String>();
+//            public Map<String, String> getParams() throws AuthFailureError {
+//                HashMap<String, String> params = new HashMap<String, String>();
 //                headers.put("username", "adiputra_utama");
 //                headers.put("password", "adiputra17");
-//                return headers;
+//                return params;
 //            }
 //
 //        };
-        requestQueue.add(req);
+
     }
 }
