@@ -4,4 +4,5 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="textBlack">18dp</dimen>
     <dimen name="textInput">16dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
 </resources>
