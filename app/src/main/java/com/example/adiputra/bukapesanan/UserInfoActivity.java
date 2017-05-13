@@ -78,10 +78,7 @@ public class UserInfoActivity extends AppCompatActivity {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-
                         try{
-
-                            //VolleyLog.v("Response : %n %s", response.toString(4));
                             Log.i("Response : ", response);
                             ModelGetUserInfo.User mgui = gson.fromJson(response, ModelGetUserInfo.User.class);
                             Log.i("Response : ", mgui.toString());

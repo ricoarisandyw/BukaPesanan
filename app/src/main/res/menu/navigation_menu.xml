@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:id="@+id/nav_pesanan"
-        android:icon="@mipmap/ic_message_white_24dp"
+        android:icon="@drawable/ic_message_black_24dp"
         android:title="Pesanan"/>
     <item android:id="@+id/nav_bid"
+        android:icon="@drawable/ic_star_border_black_24dp"
         android:title="Bid"/>
     <item android:id="@+id/nav_proyek"
+        android:icon="@drawable/ic_star_border_black_24dp"
         android:title="Proyek"/>
     <item android:id="@+id/nav_settings"
-        android:icon="@mipmap/ic_settings_white_24dp"
+        android:icon="@drawable/ic_settings_black_24dp"
         android:title="Pengaturan"/>
     <item android:id="@+id/nav_logout"
-        android:icon="@mipmap/ic_launcher_exit"
+        android:icon="@drawable/ic_exit_to_app_black_24dp"
         android:title="Log Out"/>
 </menu>

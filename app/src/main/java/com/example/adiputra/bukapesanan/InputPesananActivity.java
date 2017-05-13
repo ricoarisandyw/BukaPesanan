@@ -30,12 +30,8 @@ import java.util.HashMap;
 
 public class InputPesananActivity extends AppCompatActivity {
 
-    private static final String CATEGORIES = "https://api.bukalapak.com/v2/categories.json";
     private RequestQueue requestQueue;
     private Gson gson;
-
-//    String[] DayOfWeek = {"Sunday", "Monday", "Tuesday",
-//            "Wednesday", "Thursday", "Friday", "Saturday"};
 
     public String[] DayOfWeek;
 
@@ -43,8 +39,15 @@ public class InputPesananActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_input_pesanan);
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.hide();
+        //ActionBar actionBar = getSupportActionBar();
+        //actionBar.hide();
+
+        requestQueue = Volley.newRequestQueue(InputPesananActivity.this);
+        //requestQueue = Volley.newRequestQueue(getApplicationContext());
+        GsonBuilder gsonBuilder = new GsonBuilder();
+        gsonBuilder.setDateFormat("M/d/yy hh:mm a");
+        gson = gsonBuilder.create();
+        fetchPosts();
 
         ImageButton btnMenuInputPesanan = (ImageButton) findViewById(R.id.btnMenuInputPesanan);
         btnMenuInputPesanan.setOnClickListener(new View.OnClickListener() {
@@ -83,39 +86,37 @@ public class InputPesananActivity extends AppCompatActivity {
             }
         });
 
-        requestQueue = Volley.newRequestQueue(this);
-        requestQueue = Volley.newRequestQueue(getApplicationContext());
-        GsonBuilder gsonBuilder = new GsonBuilder();
-        gsonBuilder.setDateFormat("M/d/yy hh:mm a");
-        gson = gsonBuilder.create();
-        fetchPosts();
+
     }
 
+    private static final String CATEGORIES = "https://api.bukalapak.com/v2/categories.json";
     private void fetchPosts() {
-        StringRequest request = new StringRequest(Request.Method.POST, CATEGORIES, onPostsLoaded, onPostsError);
+        StringRequest request = new StringRequest(Request.Method.GET, CATEGORIES, onPostsLoaded, onPostsError);
         requestQueue.add(request);
     }
 
-    private final Response.ErrorListener onPostsError = new Response.ErrorListener() {
+    protected final Response.ErrorListener onPostsError = new Response.ErrorListener() {
         @Override
         public void onErrorResponse(VolleyError error) {
-            Log.e("InputPesananActivity", error.toString());
-            //tvList.append("Please Check Internet Connection\n");
+            Log.e("InputPesananActivity : ", error.toString());
         }
     };
 
-    private final Response.Listener<String> onPostsLoaded = new Response.Listener<String>() {
-
+    protected final Response.Listener<String> onPostsLoaded = new Response.Listener<String>() {
         @Override
         public void onResponse(String response) {
-            Log.i("PostActivity", response);
-            ModelGetCategories posts = gson.fromJson(response, ModelGetCategories.class);
-            Log.i("PostActivity", String.valueOf(posts.status) + " " + posts.categories.toString());
-            String filter = posts.categories.toString().replace("[","");
-            DayOfWeek = filter.split(",");
-            array();
+            try{
+                Log.i("PostActivity", response);
+                //Toast.makeText(InputPesananActivity.this, response, Toast.LENGTH_SHORT).show();
+                ModelGetCategories posts = gson.fromJson(response, ModelGetCategories.class);
+                Log.i("PostActivity", String.valueOf(posts.status) + " " + posts.categories.toString());
+                String filter = posts.categories.toString().replace("[","");
+                DayOfWeek = filter.split(",");
+                array();
+            }catch (Exception e){
+                e.printStackTrace();
+            }
         }
-
     };
 
     public void array(){

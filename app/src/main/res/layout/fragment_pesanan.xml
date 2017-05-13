@@ -8,7 +8,7 @@
     <Button
         android:layout_width="290dp"
         android:layout_height="wrap_content"
-        android:id="@+id/btn_pesanan"
+        android:id="@+id/btnPesanan"
         android:textColor="@color/textWhite"
         android:text="Lakukan Pemesanan"
         android:layout_gravity="center"
