@@ -8,6 +8,23 @@ public class ModelGetUserInfo {
     private String status;
     private User user;
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+
     public class User{
         private String name;
         private String email;
@@ -47,7 +64,7 @@ public class ModelGetUserInfo {
         }
 
         public String toString() {
-            return getAvatar();
+            return getAvatar()+","+getName()+","+getEmail();
         }
     }
 }

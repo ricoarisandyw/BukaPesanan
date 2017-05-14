@@ -5,6 +5,10 @@
     android:layout_height="140dp"
     android:background="@color/colorToolbar">
 
+    <!--<android.support.v4.widget.CircleImageView-->
+        <!--android:layout_width=""-->
+        <!--android:layout_height="" />-->
+
     <ImageView
         android:id="@+id/ivAvatar"
         android:layout_marginTop="@dimen/_10sdp"
@@ -14,7 +18,7 @@
         android:layout_centerHorizontal="true"/>
     <TextView
         android:layout_below="@id/ivAvatar"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/tvUserNameProfil"
         android:padding="10dp"

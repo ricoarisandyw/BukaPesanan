@@ -1,25 +1,14 @@
 package com.example.adiputra.bukapesanan;
 
-import android.accessibilityservice.AccessibilityService;
 import android.content.Context;
-import android.os.Build;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.PopupWindow;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.view.ViewGroup.LayoutParams;
-
-import java.util.List;
-
-import static android.content.Context.LAYOUT_INFLATER_SERVICE;
 
 /**
  * Created by adiputra on 5/11/2017.
@@ -74,7 +63,7 @@ public class ListPesananAdapter extends RecyclerView.Adapter<ListPesananAdapter.
 
     @Override
     public void onBindViewHolder(PersonViewHolder personViewHolder, int position) {
-        Person l = (Person) persons.get(position);
+        ModelListPesanan l = (ModelListPesanan) persons.get(position);
         personViewHolder.personName.setText(l.getName());
         personViewHolder.personAge.setText(l.getAge());
         personViewHolder.personPhoto.setImageResource(l.getPhotoId());

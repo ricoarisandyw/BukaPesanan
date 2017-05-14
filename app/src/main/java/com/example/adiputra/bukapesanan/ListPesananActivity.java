@@ -2,24 +2,15 @@ package com.example.adiputra.bukapesanan;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Build;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.ListAdapter;
 import android.widget.PopupWindow;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +18,7 @@ import java.util.List;
 public class ListPesananActivity extends AppCompatActivity {
 
     Context context;
-    private List<Person> persons = new ArrayList<>();
+    private List<ModelListPesanan> modelListPesanen = new ArrayList<>();
     private RecyclerView recyclerView;
     private ListPesananAdapter pAdapter;
     public static PopupWindow mPopupWindow;
@@ -49,7 +40,7 @@ public class ListPesananActivity extends AppCompatActivity {
             }
         });
 
-        pAdapter = new ListPesananAdapter(persons, context);
+        pAdapter = new ListPesananAdapter(modelListPesanen, context);
         recyclerView = (RecyclerView) findViewById(R.id.listPesanan);
         RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(ListPesananActivity.this, 2);
         recyclerView.setLayoutManager(mLayoutManager);
@@ -72,14 +63,14 @@ public class ListPesananActivity extends AppCompatActivity {
     }
 
     private void initializeData() {
-        persons.add(new Person("Tas Cantik", "100000-200000", R.drawable.tas));
-        persons.add(new Person("Tas Cantik", "100000-200000", R.drawable.tas));
-        persons.add(new Person("Tas Cantik", "100000-200000", R.drawable.tas));
-        persons.add(new Person("Tas Cantik", "100000-200000", R.drawable.tas));
-        persons.add(new Person("Tas Cantik", "100000-200000", R.drawable.tas));
-        persons.add(new Person("Tas Cantik", "100000-200000", R.drawable.tas));
-        persons.add(new Person("Tas Cantik", "100000-200000", R.drawable.tas));
-        persons.add(new Person("Tas Cantik", "100000-200000", R.drawable.tas));
+        modelListPesanen.add(new ModelListPesanan("Tas Cantik", "100000-200000", R.drawable.tas));
+        modelListPesanen.add(new ModelListPesanan("Tas Cantik", "100000-200000", R.drawable.tas));
+        modelListPesanen.add(new ModelListPesanan("Tas Cantik", "100000-200000", R.drawable.tas));
+        modelListPesanen.add(new ModelListPesanan("Tas Cantik", "100000-200000", R.drawable.tas));
+        modelListPesanen.add(new ModelListPesanan("Tas Cantik", "100000-200000", R.drawable.tas));
+        modelListPesanen.add(new ModelListPesanan("Tas Cantik", "100000-200000", R.drawable.tas));
+        modelListPesanen.add(new ModelListPesanan("Tas Cantik", "100000-200000", R.drawable.tas));
+        modelListPesanen.add(new ModelListPesanan("Tas Cantik", "100000-200000", R.drawable.tas));
         pAdapter.notifyDataSetChanged();
     }
 
