@@ -99,7 +99,7 @@ public class InputPesananActivity extends AppCompatActivity implements View.OnCl
         //INPUT
         etNamaPesanan = (EditText) findViewById(R.id.etNamaPesanan);
         mySpinner = (Spinner)findViewById(R.id.spinnerKategori);
-        etDeskripsi = (EditText) findViewById(R.id.etNamaPesanan);
+        etDeskripsi = (EditText) findViewById(R.id.etDeskripsi);
         btnSubmitPesanan = (Button) findViewById(R.id.btnSubmitPesanan);
         btnSubmitPesanan.setOnClickListener(this);
     }

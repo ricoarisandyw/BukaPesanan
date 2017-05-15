@@ -18,7 +18,6 @@ public class ListPesananAdapter extends RecyclerView.Adapter<ListPesananAdapter.
 
     private java.util.List persons;
     final Context context;
-    //private RelativeLayout mRelativeLayout;
 
     public class PersonViewHolder extends RecyclerView.ViewHolder {
         CardView cv;
@@ -36,7 +35,6 @@ public class ListPesananAdapter extends RecyclerView.Adapter<ListPesananAdapter.
                 @Override
                 public void onClick(View v) {
                     Toast.makeText(v.getContext(), "Position:" + Integer.toString(getPosition())+ "Name: "+getItemViewType(), Toast.LENGTH_SHORT).show();
-                    //showPopup();
                 }
             });
         }
