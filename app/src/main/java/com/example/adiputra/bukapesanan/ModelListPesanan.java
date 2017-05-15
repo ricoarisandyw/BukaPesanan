@@ -1,47 +1,95 @@
 package com.example.adiputra.bukapesanan;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created by adiputra on 5/11/2017.
  */
 
 public class ModelListPesanan {
-    private String name;
-    private String age;
-    private int photoId;
+    @SerializedName("id")
+    private int id;
+    @SerializedName("nama")
+    private String nama;
+    @SerializedName("kategori")
+    private String kategori;
+    @SerializedName("harga")
+    private String harga;
+    @SerializedName("deskripsi")
+    private String deskripsi;
+    @SerializedName("gambar")
+    private String gambar;
+    @SerializedName("lokasi")
+    private String lokasi;
 
-    ModelListPesanan(String name, String age, int photoId) {
-        this.setName(name);
-        this.setAge(age);
-        this.setPhotoId(photoId);
+    public ModelListPesanan(int id, String nama, String kategori, String harga, String deskripsi, String gambar, String lokasi){
+        this.id = id;
+        this.nama = nama;
+        this.kategori = kategori;
+        this.harga = harga;
+        this.deskripsi = deskripsi;
+        this.gambar = gambar;
+        this.lokasi = lokasi;
     }
 
-    public String getName() {
-        return name;
+    public ModelListPesanan(String nama, String harga){
+        this.nama = nama;
+        this.harga = harga;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public int getId() {
+        return id;
     }
 
-    public String getAge() {
-        return age;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public void setAge(String age) {
-        this.age = age;
+    public String getNama() {
+        return nama;
     }
 
-    public int getPhotoId() {
-        return photoId;
+    public void setNama(String nama) {
+        this.nama = nama;
     }
 
-    public void setPhotoId(int photoId) {
-        this.photoId = photoId;
+    public String getKategori() {
+        return kategori;
     }
 
+    public void setKategori(String kategori) {
+        this.kategori = kategori;
+    }
 
-    // This method creates an ArrayList that has three ModelListPesanan objects
-// Checkout the project associated with this tutorial on Github if
-// you want to use the same images.
+    public String getHarga() {
+        return harga;
+    }
 
+    public void setHarga(String harga) {
+        this.harga = harga;
+    }
+
+    public String getDeskripsi() {
+        return deskripsi;
+    }
+
+    public void setDeskripsi(String deskripsi) {
+        this.deskripsi = deskripsi;
+    }
+
+    public String getGambar() {
+        return gambar;
+    }
+
+    public void setGambar(String gambar) {
+        this.gambar = gambar;
+    }
+
+    public String getLokasi() {
+        return lokasi;
+    }
+
+    public void setLokasi(String lokasi) {
+        this.lokasi = lokasi;
+    }
 }

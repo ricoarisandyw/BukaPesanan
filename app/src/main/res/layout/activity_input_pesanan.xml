@@ -8,7 +8,7 @@
 
     <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_50sdp"
+        android:layout_height="@dimen/_55sdp"
         android:background="@color/colorToolbar"
         android:contentInsetLeft="0dp"
         android:contentInsetStart="0dp"
@@ -56,99 +56,143 @@
         </RelativeLayout>
     </android.support.v7.widget.Toolbar>
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="@dimen/_10sdp"
+    <ScrollView
         android:layout_below="@+id/toolbar"
-        >
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-        <android.support.v7.widget.AppCompatTextView
-            android:id="@+id/tvNamaPesanan"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Nama Pesanan : "
-            android:textSize="@dimen/textBlack"
-            android:textColor="@color/textBlack"/>
-
-        <EditText
-            android:id="@+id/etNamaPesanan"
-            android:layout_below="@+id/tvNamaPesanan"
-            android:textColorHint="@color/textHint"
-            android:layout_width="match_parent"
-            android:textSize="@dimen/textInput"
-            android:textColor="@color/textBukaLapak"
-            android:layout_height="wrap_content" />
-
-        <android.support.v7.widget.AppCompatTextView
-            android:id="@+id/tvKategori"
-            android:layout_below="@+id/etNamaPesanan"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Kategori : "
-            android:textSize="@dimen/textBlack"
-            android:textColor="@color/textBlack"/>
-
-        <android.support.v7.widget.AppCompatSpinner
-            android:layout_width="@dimen/_200sdp"
-            android:layout_height="wrap_content"
-            android:id="@+id/spinnerKategori"
-            android:textSize="@dimen/textInput"
-            android:textColor="@color/textBukaLapak"
-            android:layout_below="@+id/tvKategori"
-            android:textColorHint="@color/textHint"
-            >
-        </android.support.v7.widget.AppCompatSpinner>
-
-        <android.support.v7.widget.AppCompatTextView
-            android:id="@+id/tvDeskripsi"
-            android:layout_below="@+id/spinnerKategori"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Deskripsi : "
-            android:textSize="@dimen/textBlack"
-            android:textColor="@color/textBlack"/>
-
-        <EditText
-            android:id="@+id/etDeskripsi"
-            android:textSize="@dimen/textInput"
-            android:textColor="@color/textBukaLapak"
-            android:layout_below="@+id/tvDeskripsi"
-            android:textColorHint="@color/textHint"
-            android:layout_width="match_parent"
-            android:gravity="start"
-            android:layout_height="@dimen/_100sdp" />
-
-        <android.support.v7.widget.AppCompatTextView
-            android:id="@+id/tvGambar"
-            android:layout_below="@+id/etDeskripsi"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Masukkan Gambar Produk : "
-            android:textSize="@dimen/textBlack"
-            android:textColor="@color/textBlack"/>
-
-        <android.support.v7.widget.AppCompatButton
-            android:id="@+id/btnBrowse"
-            android:text="Browse..."
-            android:layout_below="@+id/tvGambar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <Button
-            android:id="@+id/btnSubmitPesanan"
-            android:text="Submit"
-            android:textStyle="bold"
-            android:theme="@style/styleButton"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:textSize="@dimen/textBlack"
-            android:layout_below="@+id/btnBrowse"
-            android:layout_width="match_parent"
             android:padding="@dimen/_10sdp"
-            android:layout_height="@dimen/_60sdp" />
+            android:orientation="vertical">
 
-    </RelativeLayout>
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/tvNamaPesanan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nama Pesanan : "
+                android:textSize="@dimen/textBlack"
+                android:textColor="@color/textBlack"/>
+
+            <EditText
+                android:id="@+id/etNamaPesanan"
+                android:layout_below="@+id/tvNamaPesanan"
+                android:textColorHint="@color/textHint"
+                android:layout_width="match_parent"
+                android:textSize="@dimen/textInput"
+                android:textColor="@color/textBukaLapak"
+                android:layout_height="wrap_content" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/tvKategori"
+                android:layout_below="@+id/etNamaPesanan"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Kategori : "
+                android:textSize="@dimen/textBlack"
+                android:textColor="@color/textBlack"/>
+
+            <android.support.v7.widget.AppCompatSpinner
+                android:layout_width="@dimen/_200sdp"
+                android:layout_height="wrap_content"
+                android:id="@+id/spinnerKategori"
+                android:textSize="@dimen/textInput"
+                android:textColor="@color/textBukaLapak"
+                android:layout_below="@+id/tvKategori"
+                android:textColorHint="@color/textHint"
+                >
+            </android.support.v7.widget.AppCompatSpinner>
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/tvHargaPesanan"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Harga Pesanan : "
+                android:hint="10000-50000"
+                android:textColorHint="@color/textHint"
+                android:textSize="@dimen/textBlack"
+                android:textColor="@color/textBlack"/>
+
+            <EditText
+                android:id="@+id/etHargaPesanan"
+                android:layout_below="@+id/tvHargaPesanan"
+                android:textColorHint="@color/textHint"
+                android:layout_width="match_parent"
+                android:textSize="@dimen/textInput"
+                android:textColor="@color/textBukaLapak"
+                android:layout_height="wrap_content" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/tvDeskripsi"
+                android:layout_below="@+id/spinnerKategori"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Deskripsi : "
+                android:textSize="@dimen/textBlack"
+                android:textColor="@color/textBlack"/>
+
+            <EditText
+                android:id="@+id/etDeskripsi"
+                android:textSize="@dimen/textInput"
+                android:textColor="@color/textBukaLapak"
+                android:layout_below="@+id/tvDeskripsi"
+                android:textColorHint="@color/textHint"
+                android:layout_width="match_parent"
+                android:gravity="start"
+                android:layout_height="@dimen/_100sdp" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/tvGambar"
+                android:layout_below="@+id/etDeskripsi"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Masukkan Gambar Produk : "
+                android:textSize="@dimen/textBlack"
+                android:textColor="@color/textBlack"/>
+
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/btnBrowse"
+                android:text="Browse..."
+                android:layout_below="@+id/tvGambar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/tvLokasiPesanan"
+                android:layout_below="@+id/btnBrowse"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Lokasi : "
+                android:textSize="@dimen/textBlack"
+                android:textColor="@color/textBlack"/>
+
+            <EditText
+                android:id="@+id/etLokasiPesanan"
+                android:layout_below="@+id/tvLokasiPesanan"
+                android:textColorHint="@color/textHint"
+                android:layout_width="match_parent"
+                android:textSize="@dimen/textInput"
+                android:textColor="@color/textBukaLapak"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:id="@+id/btnSubmitPesanan"
+                android:text="Submit"
+                android:textStyle="bold"
+                android:theme="@style/styleButton"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:textSize="@dimen/textBlack"
+                android:layout_below="@+id/etLokasiPesanan"
+                android:layout_width="match_parent"
+                android:padding="@dimen/_10sdp"
+                android:layout_height="@dimen/_60sdp" />
+
+        </LinearLayout>
+    </ScrollView>
 </RelativeLayout>

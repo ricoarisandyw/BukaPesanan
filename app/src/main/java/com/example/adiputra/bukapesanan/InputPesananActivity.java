@@ -42,9 +42,12 @@ public class InputPesananActivity extends AppCompatActivity implements View.OnCl
 
     private ProgressDialog progress;
 
+    //input pesanan
     public EditText etNamaPesanan;
     public Spinner mySpinner;
+    public EditText etHarga;
     public EditText etDeskripsi;
+    public EditText etLokasi;
     public Button btnSubmitPesanan;
 
     @Override
@@ -99,7 +102,9 @@ public class InputPesananActivity extends AppCompatActivity implements View.OnCl
         //INPUT
         etNamaPesanan = (EditText) findViewById(R.id.etNamaPesanan);
         mySpinner = (Spinner)findViewById(R.id.spinnerKategori);
+        etHarga = (EditText) findViewById(R.id.etHargaPesanan);
         etDeskripsi = (EditText) findViewById(R.id.etDeskripsi);
+        etLokasi = (EditText) findViewById(R.id.etLokasiPesanan);
         btnSubmitPesanan = (Button) findViewById(R.id.btnSubmitPesanan);
         btnSubmitPesanan.setOnClickListener(this);
     }
@@ -111,14 +116,19 @@ public class InputPesananActivity extends AppCompatActivity implements View.OnCl
                 Toast.makeText(this, "Nama pesanan masih kosong", Toast.LENGTH_SHORT).show();
             }else if(mySpinner.getSelectedItem().toString().equals("")){
                 Toast.makeText(this, "Kategori masih kosong", Toast.LENGTH_SHORT).show();
+            }else if(etHarga.getText().toString().equals("")){
+                Toast.makeText(this, "Harga masih kosong", Toast.LENGTH_SHORT).show();
             }else if(etDeskripsi.getText().toString().equals("")){
                 Toast.makeText(this, "Deskripsi masih kosong", Toast.LENGTH_SHORT).show();
+            }else if(etLokasi.getText().toString().equals("")){
+                Toast.makeText(this, "Lokasi masih kosong", Toast.LENGTH_SHORT).show();
             }else{
                 progress=new ProgressDialog(this);
                 progress.setMessage("Harap tunggu...");
                 progress.setProgressStyle(ProgressDialog.STYLE_SPINNER);
                 progress.setIndeterminate(true);
                 progress.setProgress(0);
+                progress.setCanceledOnTouchOutside(false);
                 progress.show();
                 registerUser();
             }
@@ -128,7 +138,9 @@ public class InputPesananActivity extends AppCompatActivity implements View.OnCl
     private void registerUser(){
         final String namaPesanan = etNamaPesanan.getText().toString().trim();
         final String kategori = mySpinner.getSelectedItem().toString().trim();
+        final String harga = etHarga.getText().toString().trim();
         final String deskripsi = etDeskripsi.getText().toString().trim();
+        final String lokasi = etLokasi.getText().toString().trim();
 
         String INPUT_PESANAN_URL = "http://adiputra17.it.student.pens.ac.id/android/BukaPesanan/insert_pesanan.php";
         StringRequest stringRequest = new StringRequest(Request.Method.POST, INPUT_PESANAN_URL,
@@ -136,9 +148,11 @@ public class InputPesananActivity extends AppCompatActivity implements View.OnCl
                     @Override
                     public void onResponse(String response) {
                         etNamaPesanan.setText("");
+                        etHarga.setText("");
                         etDeskripsi.setText("");
+                        etLokasi.setText("");
                         progress.hide();
-                        Toast.makeText(InputPesananActivity.this,"Data berhasil dimasukkan",Toast.LENGTH_LONG).show();
+                        Toast.makeText(InputPesananActivity.this,response.toString(),Toast.LENGTH_LONG).show();
                     }
                 },
                 new Response.ErrorListener() {
@@ -152,7 +166,9 @@ public class InputPesananActivity extends AppCompatActivity implements View.OnCl
                 Map<String,String> params = new HashMap<String, String>();
                 params.put("namaPesanan",namaPesanan);
                 params.put("kategori",kategori);
+                params.put("harga",harga);
                 params.put("deskripsi",deskripsi);
+                params.put("lokasi",lokasi);
                 return params;
             }
         };

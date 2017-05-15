@@ -10,61 +10,64 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.List;
+
 /**
  * Created by adiputra on 5/11/2017.
  */
 
-public class ListPesananAdapter extends RecyclerView.Adapter<ListPesananAdapter.PersonViewHolder> {
+public class ListPesananAdapter extends RecyclerView.Adapter<ListPesananAdapter.ListPesananViewHolder> {
 
-    private java.util.List persons;
+    private java.util.List listPesanan;
     final Context context;
 
-    public class PersonViewHolder extends RecyclerView.ViewHolder {
+    public class ListPesananViewHolder extends RecyclerView.ViewHolder {
         CardView cv;
-        TextView personName;
-        TextView personAge;
-        ImageView personPhoto;
+        //ImageView ivListGambarPesanan;
+        TextView tvListNamaPesanan;
+        TextView tvListHargaPesanan;
 
-        PersonViewHolder(View itemView) {
+        ListPesananViewHolder(View itemView) {
             super(itemView);
             cv = (CardView)itemView.findViewById(R.id.cv);
-            personName = (TextView)itemView.findViewById(R.id.person_name);
-            personAge = (TextView)itemView.findViewById(R.id.person_age);
-            personPhoto = (ImageView)itemView.findViewById(R.id.person_photo);
+            //ivListGambarPesanan = (ImageView)itemView.findViewById(R.id.ivListGambarPesanan);
+            tvListNamaPesanan = (TextView)itemView.findViewById(R.id.tvListNamaPesanan);
+            tvListHargaPesanan = (TextView)itemView.findViewById(R.id.tvListHargaPesanan);
+
             cv.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(v.getContext(), "Position:" + Integer.toString(getPosition())+ "Name: "+getItemViewType(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(v.getContext(), "Position:" + Integer.toString(getPosition())+ "\nName: "+getItemViewType(), Toast.LENGTH_SHORT).show();
                 }
             });
         }
     }
 
-    public ListPesananAdapter(java.util.List persons, Context context) {
-        this.persons = persons;
-        this.context = context;
+    public ListPesananAdapter(List<ModelListPesanan> listPesanan, Context context) {
+        this.listPesanan = (List) listPesanan;
+        this.context = (Context) context;
     }
 
     @Override
     public int getItemCount() {
-        return persons.size();
+        return listPesanan.size();
     }
 
     //private final View.OnClickListener mOnClickListener = new MyOnClickListener();
 
     @Override
-    public PersonViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+    public ListPesananViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.list_pesanan, viewGroup, false);
-        PersonViewHolder pvh = new PersonViewHolder(v);
+        ListPesananViewHolder pvh = new ListPesananViewHolder(v);
         return pvh;
     }
 
     @Override
-    public void onBindViewHolder(PersonViewHolder personViewHolder, int position) {
-        ModelListPesanan l = (ModelListPesanan) persons.get(position);
-        personViewHolder.personName.setText(l.getName());
-        personViewHolder.personAge.setText(l.getAge());
-        personViewHolder.personPhoto.setImageResource(l.getPhotoId());
+    public void onBindViewHolder(ListPesananViewHolder personViewHolder, int position) {
+        ModelListPesanan l = (ModelListPesanan) listPesanan.get(position);
+        //personViewHolder.ivListGambarPesanan.setImageResource(Integer.parseInt(l.getGambar()));
+        personViewHolder.tvListNamaPesanan.setText(l.getNama());
+        personViewHolder.tvListHargaPesanan.setText(l.getHarga());
     }
 
     @Override

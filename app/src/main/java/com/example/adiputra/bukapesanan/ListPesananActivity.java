@@ -8,20 +8,40 @@ import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Base64;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.PopupWindow;
+import android.widget.ProgressBar;
+import android.widget.Toast;
+
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class ListPesananActivity extends AppCompatActivity {
 
     Context context;
-    private List<ModelListPesanan> modelListPesanen = new ArrayList<>();
+    private List<ModelListPesanan> modelListPesanan = new ArrayList<>();
     private RecyclerView recyclerView;
-    private ListPesananAdapter pAdapter;
+    private ListPesananAdapter adapter;
     public static PopupWindow mPopupWindow;
+    private RequestQueue requestQueue;
+    private Gson gson;
+    private ProgressBar spinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,61 +60,75 @@ public class ListPesananActivity extends AppCompatActivity {
             }
         });
 
-        pAdapter = new ListPesananAdapter(modelListPesanen, context);
+        spinner=(ProgressBar)findViewById(R.id.progressBar1);
+        spinner.setVisibility(View.VISIBLE);
+
+        adapter = new ListPesananAdapter(modelListPesanan, context);
         recyclerView = (RecyclerView) findViewById(R.id.listPesanan);
         RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(ListPesananActivity.this, 3);
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.setAdapter(pAdapter);
+        recyclerView.setAdapter(adapter);
 
-//        recyclerView.addOnItemTouchListener(
-//                new RecyclerItemClickListener(context, recyclerView ,new RecyclerItemClickListener.OnItemClickListener() {
-//                    @Override public void onItemClick(View view, int position) {
-//                        // do whatever
-//                    }
-//
-//                    @Override public void onLongItemClick(View view, int position) {
-//                        // do whatever
-//                    }
-//                })
-//        );
+        requestQueue = Volley.newRequestQueue(this);
+        requestQueue = Volley.newRequestQueue(getApplicationContext());
+        GsonBuilder gsonBuilder = new GsonBuilder();
+        gsonBuilder.setDateFormat("M/d/yy hh:mm a");
+        gson = gsonBuilder.create();
 
-        initializeData();
+        String GETALLDATA = "http://adiputra17.it.student.pens.ac.id/android/BukaPesanan/show_all_pesanan.php";
+
+        StringRequest req = new StringRequest(Request.Method.GET, GETALLDATA,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try{
+                            Log.i("Response : ", response);
+                            //Toast.makeText(ListPesananActivity.this, response, Toast.LENGTH_LONG).show();
+                            List<ModelListPesanan> posts = Arrays.asList(gson.fromJson(response, ModelListPesanan[].class));
+
+                            Log.i("PostActivity", posts.size() + " posts loaded.");
+                            for (ModelListPesanan post : posts) {
+                                Log.i("PostActivity", post + ": " + post.getNama());
+                                modelListPesanan.add(new ModelListPesanan(
+                                        //post.getId(),
+                                        post.getNama(),
+                                        //post.getKategori(),
+                                        post.getHarga()
+                                        //post.getDeskripsi(),
+                                        //post.getGambar(),
+                                        //post.getLokasi()
+                                        ));
+                            }
+                            spinner.setVisibility(View.GONE);
+                            adapter.notifyDataSetChanged();
+                        }catch(Exception e){
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Log.e("Get Data : ", error.toString());
+                    }
+                }
+        );
+        requestQueue.add(req);
+
+        //initializeData();
     }
 
-    private void initializeData() {
-        modelListPesanen.add(new ModelListPesanan("Tas Cantik", "100000-200000", R.drawable.tas));
-        modelListPesanen.add(new ModelListPesanan("Tas Cantik", "100000-200000", R.drawable.tas));
-        modelListPesanen.add(new ModelListPesanan("Tas Cantik", "100000-200000", R.drawable.tas));
-        modelListPesanen.add(new ModelListPesanan("Tas Cantik", "100000-200000", R.drawable.tas));
-        modelListPesanen.add(new ModelListPesanan("Tas Cantik", "100000-200000", R.drawable.tas));
-        modelListPesanen.add(new ModelListPesanan("Tas Cantik", "100000-200000", R.drawable.tas));
-        modelListPesanen.add(new ModelListPesanan("Tas Cantik", "100000-200000", R.drawable.tas));
-        modelListPesanen.add(new ModelListPesanan("Tas Cantik", "100000-200000", R.drawable.tas));
-        pAdapter.notifyDataSetChanged();
-    }
-
-//    public void showPopup() {
+//    private void initializeData() {
+//        modelListPesanan.add(new ModelListPesanan("Tas Cantik", "100000-200000", R.drawable.tas));
+//        modelListPesanan.add(new ModelListPesanan("Tas Cantik", "100000-200000", R.drawable.tas));
+//        modelListPesanan.add(new ModelListPesanan("Tas Cantik", "100000-200000", R.drawable.tas));
+//        modelListPesanan.add(new ModelListPesanan("Tas Cantik", "100000-200000", R.drawable.tas));
+//        modelListPesanan.add(new ModelListPesanan("Tas Cantik", "100000-200000", R.drawable.tas));
+//        modelListPesanan.add(new ModelListPesanan("Tas Cantik", "100000-200000", R.drawable.tas));
+//        modelListPesanan.add(new ModelListPesanan("Tas Cantik", "100000-200000", R.drawable.tas));
+//        modelListPesanan.add(new ModelListPesanan("Tas Cantik", "100000-200000", R.drawable.tas));
+//        pAdapter.notifyDataSetChanged();
 //    }
-
-//    public PopupWindow pw;
-//    public static void showPopup() {
-//        try {
-//            LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-//            View layout = inflater.inflate(R.layout.popup, (ViewGroup) findViewById(R.id.popup_1));
-//            pw = new PopupWindow(layout, 300, 370, true);
-//            pw.showAtLocation(layout, Gravity.CENTER, 0, 0);
-//            Button Close = (Button) layout.findViewById(R.id.close_popup);
-//            Close.setOnClickListener(cancel_button);
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//    }
-//
-//    public View.OnClickListener cancel_button = new View.OnClickListener() {
-//        public void onClick(View v) {
-//            pw.dismiss();
-//        }
-//    };
 
 }

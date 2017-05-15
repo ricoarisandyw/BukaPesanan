@@ -60,6 +60,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         progress.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         progress.setIndeterminate(true);
         progress.setProgress(0);
+        progress.setCanceledOnTouchOutside(false);
         progress.show();
 
         //Set the fragment initially
