@@ -10,6 +10,7 @@
         android:layout_width="290dp"
         android:layout_height="wrap_content"
         android:id="@+id/btnPesanan"
+        android:theme="@style/styleButton2"
         android:textColor="@color/textWhite"
         android:text="Lakukan Pemesanan"
         android:layout_gravity="center"
@@ -18,6 +19,17 @@
         android:background="@drawable/button"/>
     <Button
         android:layout_width="290dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnListPesanan"
+        android:textColor="@color/textWhite"
+        android:theme="@style/styleButton2"
+        android:text="Daftar Pesanan"
+        android:layout_gravity="center"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/button"/>
+    <Button
+        android:layout_width="290dp"
+        android:theme="@style/styleButton2"
         android:layout_height="wrap_content"
         android:id="@+id/btn_tmbpro"
         android:textColor="@color/textWhite"
@@ -41,12 +53,12 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="250dp"
+            android:layout_height="200dp"
             android:orientation="vertical">
 
             <ImageView
-                android:layout_width="140dp"
-                android:layout_height="140dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 android:id="@+id/post_image"
                 android:padding="7dp"
                 android:layout_centerHorizontal="true"

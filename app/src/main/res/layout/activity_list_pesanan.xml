@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -10,7 +10,7 @@
 
     <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_50sdp"
+        android:layout_height="@dimen/_60sdp"
         android:background="@color/colorToolbar"
         android:contentInsetLeft="0dp"
         android:contentInsetStart="0dp"
@@ -28,7 +28,7 @@
 
             <ImageButton
                 android:layout_width="@dimen/_50sdp"
-                android:layout_height="@dimen/_50sdp"
+                android:layout_height="match_parent"
                 android:layout_centerVertical="true"
                 android:theme="@style/styleButton"
                 android:id="@+id/btnBack"
@@ -47,18 +47,11 @@
                 android:layout_centerVertical="true"
                 />
 
-            <android.support.v7.widget.SearchView
-                android:id="@+id/btnSearch"
-                android:layout_toLeftOf="@+id/btnAddPesanan"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent">
-
-            </android.support.v7.widget.SearchView>
-
             <ImageButton
                 android:id="@+id/btnAddPesanan"
+                android:layout_centerVertical="true"
                 android:layout_width="@dimen/_50sdp"
-                android:layout_height="@dimen/_50sdp"
+                android:layout_height="match_parent"
                 android:theme="@style/styleButton"
                 android:src="@drawable/ic_add_black_24dp"
                 android:layout_alignParentRight="true"/>
@@ -66,6 +59,16 @@
         </RelativeLayout>
 
     </android.support.v7.widget.Toolbar>
+
+    <android.support.v7.widget.SearchView
+        android:id="@+id/btnSearch"
+        android:layout_below="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:queryHint="Cari pesanan..."
+        android:background="@drawable/button_white"
+        android:layout_height="@dimen/_40sdp">
+
+    </android.support.v7.widget.SearchView>
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -83,4 +86,4 @@
 
     </RelativeLayout>
 
-</RelativeLayout>
+</LinearLayout>

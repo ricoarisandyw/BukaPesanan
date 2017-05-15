@@ -24,11 +24,20 @@ public class FragmentPesanan extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_pesanan, container, false);
         Button btnPesanan = (Button) view.findViewById(R.id.btnPesanan);
+        Button btnListPesanan = (Button) view.findViewById(R.id.btnListPesanan);
 
         btnPesanan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getActivity().getApplication(), InputPesananActivity.class);
+                startActivity(i);
+            }
+        });
+
+        btnListPesanan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity().getApplication(), ListPesananActivity.class);
                 startActivity(i);
             }
         });

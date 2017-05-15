@@ -127,7 +127,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                                         @Override
                                         public void onErrorResponse(VolleyError error) {
                                             Log.e("userInfo : ", error.toString());
-                                            Toast.makeText(MainActivity.this, error.toString(), Toast.LENGTH_LONG).show();
+                                            Toast.makeText(MainActivity.this, "Cek koneksi internet", Toast.LENGTH_LONG).show();
                                         }
                                     }
                             ){
@@ -153,7 +153,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         Log.e("GetUser : ", error.toString());
-                        Toast.makeText(MainActivity.this, error.toString(), Toast.LENGTH_LONG).show();
+                        Toast.makeText(MainActivity.this, "Cek koneksi internet", Toast.LENGTH_LONG).show();
                     }
                 }
         ){

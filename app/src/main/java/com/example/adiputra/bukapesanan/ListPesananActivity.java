@@ -27,8 +27,8 @@ public class ListPesananActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_pesanan);
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.hide();
+//        ActionBar actionBar = getSupportActionBar();
+//        actionBar.hide();
 
         ImageButton backBtn = (ImageButton) findViewById(R.id.btnBack);
 
@@ -42,7 +42,7 @@ public class ListPesananActivity extends AppCompatActivity {
 
         pAdapter = new ListPesananAdapter(modelListPesanen, context);
         recyclerView = (RecyclerView) findViewById(R.id.listPesanan);
-        RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(ListPesananActivity.this, 2);
+        RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(ListPesananActivity.this, 3);
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(pAdapter);
