@@ -14,6 +14,12 @@
         <item name="android:textColor">#FFFFFF</item>
     </style>
 
+    <style name="styleButton2" parent="Widget.AppCompat.Button.Colored">
+        <item name="colorControlHighlight">#50AD1F</item>
+        <item name="colorButtonNormal">#509010</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 

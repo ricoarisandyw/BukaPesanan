@@ -11,9 +11,9 @@ import android.view.ViewGroup;
  * Created by Aji Guna on 12/05/2017.
  */
 
-public class ProyekFragment extends Fragment {
+public class FragmentProyek extends Fragment {
 
-    public ProyekFragment(){
+    public FragmentProyek(){
 
     }
 

@@ -11,9 +11,9 @@ import android.view.ViewGroup;
  * Created by Aji Guna on 12/05/2017.
  */
 
-public class BidFragment extends Fragment {
+public class FragmentBid extends Fragment {
 
-    public BidFragment(){
+    public FragmentBid(){
 
     }
 

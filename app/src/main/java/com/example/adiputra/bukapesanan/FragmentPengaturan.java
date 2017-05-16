@@ -11,9 +11,9 @@ import android.view.ViewGroup;
  * Created by Aji Guna on 12/05/2017.
  */
 
-public class PengaturanFragment extends Fragment {
+public class FragmentPengaturan extends Fragment {
 
-    public PengaturanFragment(){
+    public FragmentPengaturan(){
 
     }
 
