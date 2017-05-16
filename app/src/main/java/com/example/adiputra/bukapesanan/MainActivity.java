@@ -170,8 +170,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         };
         requestQueue.add(req);
-
-
         //close --JSON--
     }
 

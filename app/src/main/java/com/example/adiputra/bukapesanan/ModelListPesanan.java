@@ -21,6 +21,8 @@ public class ModelListPesanan {
     private String gambar;
     @SerializedName("lokasi")
     private String lokasi;
+    @SerializedName("user_id")
+    private String user_id;
 
     public ModelListPesanan(int id, String nama, String kategori, String harga, String deskripsi, String gambar, String lokasi){
         this.id = id;
@@ -91,5 +93,13 @@ public class ModelListPesanan {
 
     public void setLokasi(String lokasi) {
         this.lokasi = lokasi;
+    }
+
+    public String getUser_id() {
+        return user_id;
+    }
+
+    public void setUser_id(String user_id) {
+        this.user_id = user_id;
     }
 }
