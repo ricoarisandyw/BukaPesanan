@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="@dimen/_10sdp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cv2"
+        android:layout_width="match_parent"
+        android:elevation="@dimen/_5sdp"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:padding="@dimen/_5sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tvTanggalPesanan2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@+id/tv1"
+                />
+
+            <ImageView
+                android:layout_below="@+id/tvTanggalPesanan2"
+                android:id="@+id/ivImagePesanan2"
+                android:layout_width="@dimen/_85sdp"
+                android:layout_height="@dimen/_95sdp" />
+
+            <TextView
+                android:id="@+id/tv1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/ivImagePesanan2"
+                android:text="Nama : "/>
+
+            <TextView
+                android:layout_toRightOf="@+id/tv1"
+                android:id="@+id/tvNamaPesanan2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/tv2"
+                android:layout_below="@+id/tv1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/ivImagePesanan2"
+                android:text="Harga : "/>
+
+            <TextView
+                android:layout_toRightOf="@+id/tv2"
+                android:layout_below="@+id/tvNamaPesanan2"
+                android:id="@+id/tvHargaPesanan2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/tv3"
+                android:layout_below="@+id/tv2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/ivImagePesanan2"
+                android:text="Kategori : "/>
+
+            <TextView
+                android:layout_toRightOf="@+id/tv3"
+                android:layout_below="@+id/tvHargaPesanan2"
+                android:id="@+id/tvKategoriPesanan2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/tv4"
+                android:layout_below="@+id/tv3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/ivImagePesanan2"
+                android:text="Lokasi : "/>
+
+            <TextView
+                android:layout_toRightOf="@+id/tv4"
+                android:layout_below="@+id/tvKategoriPesanan2"
+                android:id="@+id/tvLokasiPesanan2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/tv5"
+                android:layout_below="@+id/tv4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/ivImagePesanan2"
+                android:text="Deskripsi : "/>
+
+            <TextView
+                android:layout_toRightOf="@+id/ivImagePesanan2"
+                android:layout_below="@+id/tv5"
+                android:id="@+id/tvDeskripsiPesanan2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>
