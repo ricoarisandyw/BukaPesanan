@@ -1,42 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
     <Button
         android:layout_width="290dp"
         android:layout_height="wrap_content"
-        android:id="@+id/btnPesanan"
-        android:theme="@style/styleButton2"
-        android:textColor="@color/textWhite"
+        android:id="@+id/btn_pesanan"
         android:text="Lakukan Pemesanan"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="10dp"
         android:background="@drawable/button"/>
+
     <Button
         android:layout_width="290dp"
         android:layout_height="wrap_content"
-        android:id="@+id/btnListPesanan"
-        android:textColor="@color/textWhite"
-        android:theme="@style/styleButton2"
+        android:id="@+id/btn_daftar"
         android:text="Daftar Pesanan"
         android:layout_gravity="center"
         android:layout_marginBottom="10dp"
         android:background="@drawable/button"/>
+
     <Button
         android:layout_width="290dp"
-        android:theme="@style/styleButton2"
         android:layout_height="wrap_content"
         android:id="@+id/btn_tmbpro"
-        android:textColor="@color/textWhite"
-        android:text="Tawarkan Produk"
+        android:text="Tambah Produk"
         android:layout_gravity="center"
         android:layout_marginBottom="10dp"
         android:background="@drawable/button"/>
+
 
     <android.support.v7.widget.CardView
         android:id="@+id/card_view"
@@ -51,32 +48,30 @@
         app:cardPreventCornerOverlap="true"
         app:cardUseCompatPadding="false">
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="300dp"
             android:orientation="vertical">
 
             <ImageView
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
                 android:id="@+id/post_image"
                 android:padding="7dp"
-                android:layout_centerHorizontal="true"
                 android:src="@drawable/shop"
                 android:scaleType="centerCrop"
                 android:layout_gravity="center"
                 android:layout_margin="20dp"/>
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textAlignment="center"
                 android:id="@+id/post_judul"
-                android:layout_centerHorizontal="true"
-                android:layout_below="@+id/post_image"
                 android:text="Lapakku"
                 android:padding="10dp"
                 android:textStyle="bold"
                 android:textSize="20sp" />
-        </RelativeLayout>
+        </LinearLayout>
     </android.support.v7.widget.CardView>
 </LinearLayout>

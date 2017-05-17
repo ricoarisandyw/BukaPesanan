@@ -21,6 +21,10 @@ public class ModelListPesanan {
     private String gambar;
     @SerializedName("lokasi")
     private String lokasi;
+    @SerializedName("created_at")
+    private String created_at;
+    @SerializedName("user_id")
+    private String user_id;
 
     public ModelListPesanan(int id, String nama, String kategori, String harga, String deskripsi, String gambar, String lokasi){
         this.id = id;
@@ -35,6 +39,15 @@ public class ModelListPesanan {
     public ModelListPesanan(String nama, String harga){
         this.nama = nama;
         this.harga = harga;
+    }
+
+    public ModelListPesanan(String nama, String kategori, String harga, String deskripsi, String lokasi, String created_at){
+        this.nama = nama;
+        this.kategori = kategori;
+        this.harga = harga;
+        this.deskripsi = deskripsi;
+        this.lokasi = lokasi;
+        this.created_at = created_at;
     }
 
     public int getId() {
@@ -91,5 +104,21 @@ public class ModelListPesanan {
 
     public void setLokasi(String lokasi) {
         this.lokasi = lokasi;
+    }
+
+    public String getUser_id() {
+        return user_id;
+    }
+
+    public void setUser_id(String user_id) {
+        this.user_id = user_id;
+    }
+
+    public String getCreated_at() {
+        return created_at;
+    }
+
+    public void setCreated_at(String created_at) {
+        this.created_at = created_at;
     }
 }

@@ -63,11 +63,11 @@ public class ListPesananAdapter extends RecyclerView.Adapter<ListPesananAdapter.
     }
 
     @Override
-    public void onBindViewHolder(ListPesananViewHolder personViewHolder, int position) {
+    public void onBindViewHolder(ListPesananViewHolder listViewHolder, int position) {
         ModelListPesanan l = (ModelListPesanan) listPesanan.get(position);
         //personViewHolder.ivListGambarPesanan.setImageResource(Integer.parseInt(l.getGambar()));
-        personViewHolder.tvListNamaPesanan.setText(l.getNama());
-        personViewHolder.tvListHargaPesanan.setText(l.getHarga());
+        listViewHolder.tvListNamaPesanan.setText(l.getNama());
+        listViewHolder.tvListHargaPesanan.setText(l.getHarga());
     }
 
     @Override
