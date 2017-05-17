@@ -50,8 +50,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public String userToken;
     private ProgressDialog progress;
 
+    public static String USER_NAME;
+    public static String PASSWORD;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        try {
+            USER_NAME = getIntent().getStringExtra(USER_NAME);
+            PASSWORD = getIntent().getStringExtra(PASSWORD);
+        }catch (Exception e){
+            USER_NAME = "adiputra_utama";
+            PASSWORD = "adiputra17";
+        }
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rumah);
 
