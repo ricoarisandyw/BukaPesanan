@@ -75,7 +75,7 @@ public class ListPesanankuActivity extends AppCompatActivity {
 
         Bundle tvB = getIntent().getExtras();
         final String user_id = tvB.getString("user_id");
-        Toast.makeText(ListPesanankuActivity.this, "USER_ID : "+user_id, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(ListPesanankuActivity.this, "USER_ID : "+user_id, Toast.LENGTH_SHORT).show();
         String GETALLMYDATA = "http://adiputra17.it.student.pens.ac.id/android/BukaPesanan/show_all_pesananku.php?user_id=";
         String url = GETALLMYDATA+user_id;
         StringRequest req = new StringRequest(url,
@@ -84,13 +84,13 @@ public class ListPesanankuActivity extends AppCompatActivity {
                     public void onResponse(String response) {
                         try{
                             Log.i("Response : ", response);
-                            Toast.makeText(ListPesanankuActivity.this, response, Toast.LENGTH_LONG).show();
+                            //Toast.makeText(ListPesanankuActivity.this, response, Toast.LENGTH_LONG).show();
                             List<ModelListPesanan> posts = Arrays.asList(gson.fromJson(response, ModelListPesanan[].class));
 
                             Log.i("PostActivity", posts.size() + " posts loaded.");
                             for (ModelListPesanan post : posts) {
                                 Log.i("PostActivity", post + ": " + post.getNama());
-                                Toast.makeText(ListPesanankuActivity.this, post.getNama()+" "+post.getUser_id(), Toast.LENGTH_SHORT).show();
+                                //Toast.makeText(ListPesanankuActivity.this, post.getNama()+" "+post.getUser_id(), Toast.LENGTH_SHORT).show();
                                 modelListPesananku.add(new ModelListPesanan(
                                         //post.getId(),
                                         post.getNama(),

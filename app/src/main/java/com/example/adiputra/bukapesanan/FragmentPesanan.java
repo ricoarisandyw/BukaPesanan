@@ -61,7 +61,7 @@ public class FragmentPesanan extends Fragment {
                     @Override
                     public void onResponse(String response) {
                         final ModelGetUser mgu = gson.fromJson(response, ModelGetUser.class);
-                        Toast.makeText(getActivity().getApplication(),"ID : "+mgu.getUser_id(),Toast.LENGTH_LONG).show();
+                        //Toast.makeText(getActivity().getApplication(),"ID : "+mgu.getUser_id(),Toast.LENGTH_LONG).show();
                         user_id = String.valueOf(mgu.getUser_id());
                     }
                 },

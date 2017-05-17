@@ -1,15 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:padding="@dimen/_10sdp"
+    android:paddingTop="@dimen/_5sdp"
+    android:paddingLeft="@dimen/_5sdp"
+    android:paddingRight="@dimen/_5sdp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
     <android.support.v7.widget.CardView
         android:id="@+id/cv2"
+        app:cardCornerRadius="2dp"
+        app:cardElevation="2dp"
+        app:cardPreventCornerOverlap="true"
+        app:cardUseCompatPadding="false"
         android:layout_width="match_parent"
-        android:elevation="@dimen/_5sdp"
+        android:elevation="@dimen/_2sdp"
         android:layout_height="wrap_content">
 
         <RelativeLayout
@@ -27,15 +34,18 @@
             <ImageView
                 android:layout_below="@+id/tvTanggalPesanan2"
                 android:id="@+id/ivImagePesanan2"
+                android:background="@drawable/ic_image_black_24dp"
+                android:layout_marginTop="@dimen/_5sdp"
                 android:layout_width="@dimen/_85sdp"
                 android:layout_height="@dimen/_95sdp" />
 
             <TextView
+                android:textStyle="bold"
                 android:id="@+id/tv1"
-                android:layout_width="wrap_content"
+                android:layout_width="@dimen/_60sdp"
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@+id/ivImagePesanan2"
-                android:text="Nama : "/>
+                android:text="Nama "/>
 
             <TextView
                 android:layout_toRightOf="@+id/tv1"
@@ -45,11 +55,12 @@
 
             <TextView
                 android:id="@+id/tv2"
+                android:textStyle="bold"
                 android:layout_below="@+id/tv1"
-                android:layout_width="wrap_content"
+                android:layout_width="@dimen/_60sdp"
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@+id/ivImagePesanan2"
-                android:text="Harga : "/>
+                android:text="Harga "/>
 
             <TextView
                 android:layout_toRightOf="@+id/tv2"
@@ -60,11 +71,12 @@
 
             <TextView
                 android:id="@+id/tv3"
+                android:textStyle="bold"
                 android:layout_below="@+id/tv2"
-                android:layout_width="wrap_content"
+                android:layout_width="@dimen/_60sdp"
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@+id/ivImagePesanan2"
-                android:text="Kategori : "/>
+                android:text="Kategori "/>
 
             <TextView
                 android:layout_toRightOf="@+id/tv3"
@@ -75,11 +87,12 @@
 
             <TextView
                 android:id="@+id/tv4"
+                android:textStyle="bold"
                 android:layout_below="@+id/tv3"
-                android:layout_width="wrap_content"
+                android:layout_width="@dimen/_60sdp"
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@+id/ivImagePesanan2"
-                android:text="Lokasi : "/>
+                android:text="Lokasi "/>
 
             <TextView
                 android:layout_toRightOf="@+id/tv4"
@@ -90,11 +103,12 @@
 
             <TextView
                 android:id="@+id/tv5"
+                android:textStyle="bold"
                 android:layout_below="@+id/tv4"
-                android:layout_width="wrap_content"
+                android:layout_width="@dimen/_60sdp"
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@+id/ivImagePesanan2"
-                android:text="Deskripsi : "/>
+                android:text="Deskripsi "/>
 
             <TextView
                 android:layout_toRightOf="@+id/ivImagePesanan2"
