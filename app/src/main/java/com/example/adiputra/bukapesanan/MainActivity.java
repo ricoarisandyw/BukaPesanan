@@ -172,4 +172,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+    public String getMyData() {
+        return USER_ID;
+    }
 }

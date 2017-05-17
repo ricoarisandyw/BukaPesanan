@@ -55,7 +55,6 @@ public class UserInfoActivity extends AppCompatActivity {
         gsonBuilder.setDateFormat("M/d/yy hh:mm a");
         gson = gsonBuilder.create();
 
-
         String URL = "https://api.bukalapak.com/v2/users/info.json";
         HashMap<String, String> params = new HashMap<String, String>();
         params.put("user_id", tvB.getString("UserId"));

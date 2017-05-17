@@ -48,42 +48,8 @@ public class FragmentPesanan extends Fragment {
         Button btnListPesanan = (Button) view.findViewById(R.id.btnListPesanan);
         Button btnListPesananku = (Button) view.findViewById(R.id.btnListPesananku);
 
-        //open --JSON--
-        requestQueue = Volley.newRequestQueue(getActivity().getApplication());
-        //requestQueue = Volley.newRequestQueue(getApplicationContext());
-        GsonBuilder gsonBuilder = new GsonBuilder();
-        gsonBuilder.setDateFormat("M/d/yy hh:mm a");
-        gson = gsonBuilder.create();
-
-        String AUTH = "https://api.bukalapak.com/v2/authenticate.json";
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, AUTH,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        final ModelGetUser mgu = gson.fromJson(response, ModelGetUser.class);
-                        //Toast.makeText(getActivity().getApplication(),"ID : "+mgu.getUser_id(),Toast.LENGTH_LONG).show();
-                        user_id = String.valueOf(mgu.getUser_id());
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(getActivity().getApplication(),"Fragment Pesanan : "+error.toString(),Toast.LENGTH_LONG).show();
-                    }
-                }
-        ){
-            @Override
-            public Map<String, String> getHeaders() throws AuthFailureError {
-                HashMap<String, String> headers = new HashMap<String, String>();
-                headers.put("Content-Type", "application/x-www-form-urlencoded");
-                headers.put("Content-Type", "application/json; charset=utf-8");
-                String creds = String.format("%s:%s","adiputra_utama","adiputra17");
-                String auth = "Basic " + Base64.encodeToString(creds.getBytes(), Base64.DEFAULT);
-                headers.put("Authorization", auth);
-                return headers;
-            }
-        };
-        requestQueue.add(stringRequest);
+        MainActivity activity = (MainActivity) getActivity();
+        final String USER_ID = activity.getMyData();
 
         btnPesanan.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -106,7 +72,7 @@ public class FragmentPesanan extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getActivity().getApplication(), ListPesanankuActivity.class);
-                i.putExtra("user_id",user_id);
+                i.putExtra("user_id",USER_ID);
                 startActivity(i);
             }
         });
