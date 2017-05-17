@@ -64,22 +64,30 @@ public class activityLogin extends AppCompatActivity {
         btnlogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                progress=new ProgressDialog(activityLogin.this);
+                progress.setMessage("Please Wait...");
+                progress.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+                progress.setIndeterminate(true);
+                progress.setProgress(0);
+                progress.setCanceledOnTouchOutside(false);
+                progress.show();
                 cekLog(nametxt.getText().toString(), passtxt.getText().toString());
-                Log.d("Cek STATUS : ", Boolean.toString(getSTATUS()));
-                if (getSTATUS()) {
-                    Intent i = new Intent(activityLogin.this, MainActivity.class);
-                    Log.d("pindah Acitivty : ", Boolean.toString(getSTATUS()));
-                    //Mengirim Data ke Activity lain.
-                    try {
-                        i.putExtra(MainActivity.USER_NAME, nametxt.getText().toString());
-                        i.putExtra(MainActivity.PASSWORD, passtxt.getText().toString());
-                    }catch (Exception e){
-                        Toast.makeText(activityLogin.this, e.toString(), Toast.LENGTH_LONG).show();
-                    }
-                    startActivity(i);
-                } else {
-                    Log.d("pindah Acitivty : ", Boolean.toString(getSTATUS()));
-                }
+//                Log.d("Cek STATUS : ", Boolean.toString(getSTATUS()));
+//                if (getSTATUS()) {
+//                    Intent i = new Intent(activityLogin.this, MainActivity.class);
+//                    Log.d("pindah Acitivty : ", Boolean.toString(getSTATUS()));
+//                    //Mengirim Data ke Activity lain.
+//                    try {
+//                        i.putExtra(MainActivity.USER_NAME, nametxt.getText().toString());
+//                        i.putExtra(MainActivity.PASSWORD, passtxt.getText().toString());
+//                    }catch (Exception e){
+//                        Toast.makeText(activityLogin.this, e.toString(), Toast.LENGTH_LONG).show();
+//                    }
+//                    startActivity(i);
+//                } else {
+//                    Log.d("pindah Acitivty : ", Boolean.toString(getSTATUS()));
+//                    progress.hide();
+//                }
             }
         });
     }
@@ -94,13 +102,34 @@ public class activityLogin extends AppCompatActivity {
         gson = gsonBuilder.create();
 
         String AUTH = "https://api.bukalapak.com/v2/authenticate.json";
-        StringRequest req = new StringRequest(Request.Method.POST, AUTH,methodRes()
-                ,
+        StringRequest req = new StringRequest(Request.Method.POST, AUTH,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try{
+                            Log.i("Response POST : ", response);
+                            progress.hide();
+                            ModelGetUser mgu = gson.fromJson(response, ModelGetUser.class);
+                            if(mgu.getStatus().equals("ERROR")){
+                                Toast.makeText(activityLogin.this, mgu.getMessage(), Toast.LENGTH_LONG).show();
+                            }else if(mgu.getStatus().equals("OK")){
+                                Toast.makeText(activityLogin.this, "Login berhasil", Toast.LENGTH_LONG).show();
+                                Intent i = new Intent(activityLogin.this, MainActivity.class);
+                                i.putExtra("userId",String.valueOf(mgu.getUser_id()));
+                                i.putExtra("userToken",mgu.getToken());
+                                startActivity(i);
+                            }
+                        }catch(Exception e){
+                            e.printStackTrace();
+                        }
+                    }
+                },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         Log.e("GetUser : ", error.toString());
-                        Toast.makeText(activityLogin.this, "Cek koneksi internet", Toast.LENGTH_LONG).show();
+                        progress.hide();
+                        Toast.makeText(activityLogin.this, "Username/Password tidak valid", Toast.LENGTH_LONG).show();
                     }
                 }
         ){
@@ -124,61 +153,6 @@ public class activityLogin extends AppCompatActivity {
     public void becomeTrue(){
         Log.i("Berjalan : ", Boolean.toString(STATUS));
         this.STATUS = true;
-    }
-    public Response.Listener<String> methodRes(){
-        Response.Listener<String> resList = new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                try{
-                    Log.i("Response POST : ", response);
-                    ModelGetUser mgu = gson.fromJson(response, ModelGetUser.class);
-                    userId = String.valueOf(mgu.getUser_id());
-                    userToken = mgu.getToken();
-
-                    //USER INFO
-                    String USERINFO = "https://api.bukalapak.com/v2/users/info.json";
-                    StringRequest request = new StringRequest(Request.Method.GET, USERINFO,
-                            new Response.Listener<String>() {
-                                @Override
-                                public void onResponse(String response) {
-                                    try{
-                                        Log.i("Response GET : ", response);
-                                        ModelGetUserInfo mgui1 = gson.fromJson(response, ModelGetUserInfo.class);
-                                        String filter[] = mgui1.getUser().toString().split(",");
-                                        Toast.makeText(activityLogin.this, "Login Berhasil", Toast.LENGTH_SHORT).show();
-                                        becomeTrue();
-                                    }catch(Exception e){
-                                        e.printStackTrace();
-                                    }
-                                }
-                            },
-                            new Response.ErrorListener() {
-                                @Override
-                                public void onErrorResponse(VolleyError error) {
-                                    Log.e("userInfo : ", error.toString());
-                                    Toast.makeText(activityLogin.this, "Cek koneksi internet", Toast.LENGTH_LONG).show();
-                                }
-                            }
-                    ){
-                        @Override
-                        public Map<String, String> getHeaders() throws AuthFailureError {
-                            HashMap<String, String> headers = new HashMap<String, String>();
-                            headers.put("Content-Type", "application/x-www-form-urlencoded");
-                            headers.put("Content-Type", "application/json; charset=utf-8");
-                            String creds = String.format("%s:%s",userId,userToken);
-                            String auth = "Basic " + Base64.encodeToString(creds.getBytes(), Base64.DEFAULT);
-                            headers.put("Authorization", auth);
-                            return headers;
-                        }
-                    };
-                    requestQueue.add(request);
-
-                }catch(Exception e){
-                    e.printStackTrace();
-                }
-            }
-        };
-        return resList;
     }
     public boolean getSTATUS(){
         return this.STATUS;

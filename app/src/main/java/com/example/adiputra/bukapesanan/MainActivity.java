@@ -46,33 +46,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private Toolbar mToolbar;
     private RequestQueue requestQueue;
     private Gson gson;
-    public String userId;
-    public String userToken;
-    private ProgressDialog progress;
 
-    public static String USER_NAME;
-    public static String PASSWORD;
+    public static String USER_ID;
+    public static String TOKEN;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        try {
-            USER_NAME = getIntent().getStringExtra(USER_NAME);
-            PASSWORD = getIntent().getStringExtra(PASSWORD);
-        }catch (Exception e){
-            USER_NAME = "adiputra_utama";
-            PASSWORD = "adiputra17";
-        }
+
+        USER_ID = getIntent().getStringExtra("userId");
+        TOKEN = getIntent().getStringExtra("userToken");
+
+        Log.d("Ikiloh ->", TOKEN + " :" + USER_ID );
+        Toast.makeText(MainActivity.this, USER_ID+" : "+TOKEN, Toast.LENGTH_SHORT).show();
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rumah);
-
-        progress=new ProgressDialog(this);
-        progress.setMessage("Please Wait...");
-        progress.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-        progress.setIndeterminate(true);
-        progress.setProgress(0);
-        progress.setCanceledOnTouchOutside(false);
-        progress.show();
 
         //Set the fragment initially
         FragmentPesanan fragment = new FragmentPesanan();
@@ -102,60 +90,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         gsonBuilder.setDateFormat("M/d/yy hh:mm a");
         gson = gsonBuilder.create();
 
-        String AUTH = "https://api.bukalapak.com/v2/authenticate.json";
-        StringRequest req = new StringRequest(Request.Method.POST, AUTH,
+        //USER INFO
+        String USERINFO = "https://api.bukalapak.com/v2/users/info.json";
+        StringRequest request = new StringRequest(Request.Method.GET, USERINFO,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         try{
                             Log.i("Response : ", response);
-                            ModelGetUser mgu = gson.fromJson(response, ModelGetUser.class);
-                            tvUserNameProfil.setText(mgu.getUser_name());
-                            userId = String.valueOf(mgu.getUser_id());
-                            userToken = mgu.getToken();
-
-                            //USER INFO
-                            String USERINFO = "https://api.bukalapak.com/v2/users/info.json";
-                            StringRequest request = new StringRequest(Request.Method.GET, USERINFO,
-                                    new Response.Listener<String>() {
-                                        @Override
-                                        public void onResponse(String response) {
-                                            try{
-                                                Log.i("Response : ", response);
-                                                ModelGetUserInfo mgui1 = gson.fromJson(response, ModelGetUserInfo.class);
-                                                String filter[] = mgui1.getUser().toString().split(",");
-                                                Toast.makeText(MainActivity.this, "Login Berhasil", Toast.LENGTH_SHORT).show();
-                                                //Toast.makeText(MainActivity.this, filter[0]+"\n"+filter[1]+"\n"+filter[2], Toast.LENGTH_SHORT).show();
-                                                Glide.with(MainActivity.this)
-                                                        .load(filter[0])
-                                                        .into(ivAvatar);
-                                                progress.hide();
-                                            }catch(Exception e){
-                                                e.printStackTrace();
-                                            }
-                                        }
-                                    },
-                                    new Response.ErrorListener() {
-                                        @Override
-                                        public void onErrorResponse(VolleyError error) {
-                                            Log.e("userInfo : ", error.toString());
-                                            Toast.makeText(MainActivity.this, "Cek koneksi internet", Toast.LENGTH_LONG).show();
-                                        }
-                                    }
-                            ){
-                                @Override
-                                public Map<String, String> getHeaders() throws AuthFailureError {
-                                    HashMap<String, String> headers = new HashMap<String, String>();
-                                    headers.put("Content-Type", "application/x-www-form-urlencoded");
-                                    headers.put("Content-Type", "application/json; charset=utf-8");
-                                    String creds = String.format("%s:%s",userId,userToken);
-                                    String auth = "Basic " + Base64.encodeToString(creds.getBytes(), Base64.DEFAULT);
-                                    headers.put("Authorization", auth);
-                                    return headers;
-                                }
-                            };
-                            requestQueue.add(request);
-
+                            ModelGetUserInfo mgui1 = gson.fromJson(response, ModelGetUserInfo.class);
+                            String filter[] = mgui1.getUser().toString().split(",");
+                            //Toast.makeText(MainActivity.this, filter[0]+"\n"+filter[1]+"\n"+filter[2], Toast.LENGTH_SHORT).show();
+                            tvUserNameProfil.setText(filter[1]);
+                            Glide.with(MainActivity.this)
+                                    .load(filter[0])
+                                    .into(ivAvatar);
                         }catch(Exception e){
                             e.printStackTrace();
                         }
@@ -164,7 +113,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Log.e("GetUser : ", error.toString());
+                        Log.e("userInfo : ", error.toString());
                         Toast.makeText(MainActivity.this, "Cek koneksi internet", Toast.LENGTH_LONG).show();
                     }
                 }
@@ -174,14 +123,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 HashMap<String, String> headers = new HashMap<String, String>();
                 headers.put("Content-Type", "application/x-www-form-urlencoded");
                 headers.put("Content-Type", "application/json; charset=utf-8");
-                String creds = String.format("%s:%s","adiputra_utama","adiputra17");
+                String creds = String.format("%s:%s",USER_ID,TOKEN);
                 String auth = "Basic " + Base64.encodeToString(creds.getBytes(), Base64.DEFAULT);
                 headers.put("Authorization", auth);
                 return headers;
             }
         };
-        requestQueue.add(req);
-        //close --JSON--
+        requestQueue.add(request);
     }
 
     @Override

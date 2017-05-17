@@ -5,11 +5,15 @@ package com.example.adiputra.bukapesanan;
  */
 
 public class ModelGetUser {
+    private String status;
+    private String message;
     private int user_id;
     private String user_name;
     private String token;
     private String email;
     private String omnikey;
+
+
 
     public int getUser_id() { return user_id; }
 
@@ -47,5 +51,21 @@ public class ModelGetUser {
 
     public void setOmnikey(String omnikey) {
         this.omnikey = omnikey;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
     }
 }
