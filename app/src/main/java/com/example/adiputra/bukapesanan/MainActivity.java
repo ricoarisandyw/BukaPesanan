@@ -2,6 +2,8 @@ package com.example.adiputra.bukapesanan;
 
 import android.app.FragmentTransaction;
 import android.app.ProgressDialog;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -56,7 +58,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         USER_ID = getIntent().getStringExtra("userId");
         TOKEN = getIntent().getStringExtra("userToken");
 
-        Log.d("Ikiloh ->", TOKEN + " :" + USER_ID );
+        if(USER_ID==null && TOKEN==null){
+            USER_ID = loadData("username");
+            TOKEN = loadData("password");
+        }
+
         Toast.makeText(MainActivity.this, USER_ID+" : "+TOKEN, Toast.LENGTH_SHORT).show();
 
         super.onCreate(savedInstanceState);
@@ -100,7 +106,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                             Log.i("Response : ", response);
                             ModelGetUserInfo mgui1 = gson.fromJson(response, ModelGetUserInfo.class);
                             String filter[] = mgui1.getUser().toString().split(",");
-                            //Toast.makeText(MainActivity.this, filter[0]+"\n"+filter[1]+"\n"+filter[2], Toast.LENGTH_SHORT).show();
                             tvUserNameProfil.setText(filter[1]);
                             Glide.with(MainActivity.this)
                                     .load(filter[0])
@@ -167,6 +172,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     getFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.fragment_container, fragment);
             fragmentTransaction.commit();
+        }else if(id == R.id.nav_logout){
+            deleteData("username");
+            deleteData("password");
+            Intent i = new Intent( MainActivity.this , activityLogin.class);
+            startActivity(i);
+            finish();
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_main);
         drawer.closeDrawer(GravityCompat.START);
@@ -175,5 +186,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     public String getMyData() {
         return USER_ID;
+    }
+
+    public void deleteData(String name){
+        SharedPreferences prefs = getSharedPreferences("UserData", 0);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putString(name, "");
+        Log.d("Hapus Data:", "");
+        editor.commit();
+    }
+
+    public String loadData(String name){
+        SharedPreferences prefs = getSharedPreferences("UserData", 0);
+        String data = prefs.getString(name,"");
+        Log.d(name + " keluar:", data);
+        return data;
     }
 }
