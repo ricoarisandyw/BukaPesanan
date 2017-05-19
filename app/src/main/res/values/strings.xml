@@ -17,6 +17,8 @@
     <string name="open">Open</string>
     <string name="close">Close</string>
 
+    <string name="facebook_app_id">826495667498893</string>
+
     <string-array name="kategories">
         <item>Fashion</item>
         <item>Electronic</item>
