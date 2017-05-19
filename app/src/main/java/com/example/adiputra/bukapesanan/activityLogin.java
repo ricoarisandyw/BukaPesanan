@@ -91,22 +91,6 @@ public class activityLogin extends AppCompatActivity {
                 progress.setCanceledOnTouchOutside(false);
                 progress.show();
                 cekLog(nametxt.getText().toString(), passtxt.getText().toString());
-//                Log.d("Cek STATUS : ", Boolean.toString(getSTATUS()));
-//                if (getSTATUS()) {
-//                    Intent i = new Intent(activityLogin.this, MainActivity.class);
-//                    Log.d("pindah Acitivty : ", Boolean.toString(getSTATUS()));
-//                    //Mengirim Data ke Activity lain.
-//                    try {
-//                        i.putExtra(MainActivity.USER_NAME, nametxt.getText().toString());
-//                        i.putExtra(MainActivity.PASSWORD, passtxt.getText().toString());
-//                    }catch (Exception e){
-//                        Toast.makeText(activityLogin.this, e.toString(), Toast.LENGTH_LONG).show();
-//                    }
-//                    startActivity(i);
-//                } else {
-//                    Log.d("pindah Acitivty : ", Boolean.toString(getSTATUS()));
-//                    progress.hide();
-//                }
             }
         });
     }
