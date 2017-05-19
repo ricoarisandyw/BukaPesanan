@@ -353,4 +353,11 @@ public class InputPesananActivity extends AppCompatActivity implements View.OnCl
                 R.layout.list_kategory, R.id.weekofday, DayOfWeek);
         mySpinner.setAdapter(adapter);
     }
+
+    @Override
+    public void onBackPressed(){
+        super.onBackPressed();
+        finish();
+    }
+
 }

@@ -3,7 +3,6 @@ package com.example.adiputra.bukapesanan;
 import android.app.FragmentTransaction;
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.net.Uri;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
@@ -62,24 +61,6 @@ public class activityLogin extends AppCompatActivity {
         passtxt = (EditText) findViewById(R.id.passText);
         btnlogin = (Button) findViewById(R.id.btnLogin);
 
-        //Toast.makeText(activityLogin.this, Boolean.toString(loadData("username").equals("")) + ":::" +  Boolean.toString(loadData("username").equals("")), Toast.LENGTH_LONG).show();
-
-        if(loadData("username").equals("") && loadData("password").equals("")){
-
-        }else{
-            //Toast.makeText(activityLogin.this, "Proses Masuk!!!" , Toast.LENGTH_LONG).show();
-            String usernameCache = loadData("username").toString();
-            String passwordCache = loadData("password").toString();
-            progress=new ProgressDialog(activityLogin.this);
-            progress.setMessage("Please Wait...");
-            progress.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-            progress.setIndeterminate(true);
-            progress.setProgress(0);
-            progress.setCanceledOnTouchOutside(false);
-            progress.show();
-            cekLog(usernameCache.toString(),passwordCache.toString());
-        }
-
         btnlogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -96,7 +77,7 @@ public class activityLogin extends AppCompatActivity {
     }
 
 
-    public void cekLog(final String uname, final String pass){
+    public boolean cekLog(final String uname, final String pass){
         //open --JSON--
         requestQueue = Volley.newRequestQueue(this);
         requestQueue = Volley.newRequestQueue(getApplicationContext());
@@ -114,11 +95,8 @@ public class activityLogin extends AppCompatActivity {
                             progress.hide();
                             ModelGetUser mgu = gson.fromJson(response, ModelGetUser.class);
                             if(mgu.getStatus().equals("ERROR")){
-                                deleteData();
                                 Toast.makeText(activityLogin.this, mgu.getMessage(), Toast.LENGTH_LONG).show();
                             }else if(mgu.getStatus().equals("OK")){
-                                saveData("username", uname);
-                                saveData("password", mgu.getToken());
                                 Toast.makeText(activityLogin.this, "Login berhasil", Toast.LENGTH_LONG).show();
                                 Intent i = new Intent(activityLogin.this, MainActivity.class);
                                 i.putExtra("userId",String.valueOf(mgu.getUser_id()));
@@ -147,33 +125,20 @@ public class activityLogin extends AppCompatActivity {
                 String creds = String.format("%s:%s",uname,pass);
                 String auth = "Basic " + Base64.encodeToString(creds.getBytes(), Base64.DEFAULT);
                 headers.put("Authorization", auth);
+
                 return headers;
             }
         };
         requestQueue.add(req);
+        Log.i("isiSTATUS : ", Boolean.toString(STATUS));
+        return this.STATUS;
         //close --JSON--
     }
-
-    public void saveData(String name, String value){
-        SharedPreferences prefs = getSharedPreferences("UserData", 0);
-        SharedPreferences.Editor editor = prefs.edit();
-        editor.putString(name, value);
-        Log.d(name + " masuk :", value);
-        editor.commit();
+    public void becomeTrue(){
+        Log.i("Berjalan : ", Boolean.toString(STATUS));
+        this.STATUS = true;
     }
-
-    public String loadData(String name){
-        SharedPreferences prefs = getSharedPreferences("UserData", 0);
-        String data = prefs.getString(name,"");
-        Log.d(name + " keluar:", data);
-        return data;
-    }
-
-    public void deleteData(){
-        SharedPreferences prefs = getSharedPreferences("UserData", 0);
-        SharedPreferences.Editor editor = prefs.edit();
-        editor.putString("username", "");
-        Log.d("Hapus Data:", "");
-        editor.commit();
+    public boolean getSTATUS(){
+        return this.STATUS;
     }
 }

@@ -119,6 +119,12 @@ public class ListPesananActivity extends AppCompatActivity {
         //initializeData();
     }
 
+    @Override
+    public void onBackPressed(){
+        super.onBackPressed();
+        finish();
+    }
+
 //    private void initializeData() {
 //        modelListPesanan.add(new ModelListPesanan("Tas Cantik", "100000-200000", R.drawable.tas));
 //        modelListPesanan.add(new ModelListPesanan("Tas Cantik", "100000-200000", R.drawable.tas));

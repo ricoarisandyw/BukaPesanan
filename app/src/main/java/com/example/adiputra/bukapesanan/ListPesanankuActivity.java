@@ -133,4 +133,10 @@ public class ListPesanankuActivity extends AppCompatActivity {
         };
         requestQueue.add(req);
     }
+
+    @Override
+    public void onBackPressed(){
+        super.onBackPressed();
+        finish();
+    }
 }

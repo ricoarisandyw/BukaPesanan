@@ -22,6 +22,8 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/btnPesanan"
                 android:text="Lakukan Pemesanan"
+                android:textColor="@color/textBukaLapak"
+                android:textStyle="bold"
                 android:layout_gravity="center"
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/button"/>
@@ -29,6 +31,8 @@
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/textBukaLapak"
+                android:textStyle="bold"
                 android:id="@+id/btnListPesananku"
                 android:text="Daftar Pesananku"
                 android:layout_gravity="center"
@@ -38,6 +42,8 @@
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/textBukaLapak"
+                android:textStyle="bold"
                 android:id="@+id/btnListPesanan"
                 android:text="Daftar Semua Pesanan"
                 android:layout_gravity="center"
@@ -47,6 +53,8 @@
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/textBukaLapak"
+                android:textStyle="bold"
                 android:id="@+id/btnTawarkanProduk"
                 android:text="Tawarkan Produk"
                 android:layout_gravity="center"

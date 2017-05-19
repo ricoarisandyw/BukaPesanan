@@ -49,8 +49,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private RequestQueue requestQueue;
     private Gson gson;
 
-    private ProgressDialog progress;
-
     public static String USER_ID;
     public static String TOKEN;
 
@@ -64,17 +62,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             USER_ID = loadData("username");
             TOKEN = loadData("password");
         }
-
-        String usernameCache = loadData("username").toString();
-        String passwordCache = loadData("password").toString();
-        progress=new ProgressDialog(MainActivity.this);
-        progress.setMessage("Please Wait...");
-        progress.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-        progress.setIndeterminate(true);
-        progress.setProgress(0);
-        progress.setCanceledOnTouchOutside(false);
-        progress.show();
-
 
         Toast.makeText(MainActivity.this, USER_ID+" : "+TOKEN, Toast.LENGTH_SHORT).show();
 
@@ -117,7 +104,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     public void onResponse(String response) {
                         try{
                             Log.i("Response : ", response);
-                            progress.hide();
                             ModelGetUserInfo mgui1 = gson.fromJson(response, ModelGetUserInfo.class);
                             String filter[] = mgui1.getUser().toString().split(",");
                             tvUserNameProfil.setText(filter[1]);
