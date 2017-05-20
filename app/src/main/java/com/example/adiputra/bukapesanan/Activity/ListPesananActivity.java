@@ -121,17 +121,4 @@ public class ListPesananActivity extends AppCompatActivity {
         super.onBackPressed();
         finish();
     }
-
-//    private void initializeData() {
-//        modelListPesanan.add(new ModelListPesanan("Tas Cantik", "100000-200000", R.drawable.tas));
-//        modelListPesanan.add(new ModelListPesanan("Tas Cantik", "100000-200000", R.drawable.tas));
-//        modelListPesanan.add(new ModelListPesanan("Tas Cantik", "100000-200000", R.drawable.tas));
-//        modelListPesanan.add(new ModelListPesanan("Tas Cantik", "100000-200000", R.drawable.tas));
-//        modelListPesanan.add(new ModelListPesanan("Tas Cantik", "100000-200000", R.drawable.tas));
-//        modelListPesanan.add(new ModelListPesanan("Tas Cantik", "100000-200000", R.drawable.tas));
-//        modelListPesanan.add(new ModelListPesanan("Tas Cantik", "100000-200000", R.drawable.tas));
-//        modelListPesanan.add(new ModelListPesanan("Tas Cantik", "100000-200000", R.drawable.tas));
-//        pAdapter.notifyDataSetChanged();
-//    }
-
 }
