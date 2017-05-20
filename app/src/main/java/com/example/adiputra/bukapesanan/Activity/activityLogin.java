@@ -59,7 +59,7 @@ public class activityLogin extends AppCompatActivity {
         passtxt = (EditText) findViewById(R.id.passText);
         btnlogin = (Button) findViewById(R.id.btnLogin);
 
-        //Toast.makeText(activityLogin.this, Boolean.toString(loadData("username").equals("")) + ":::" +  Boolean.toString(loadData("username").equals("")), Toast.LENGTH_LONG).show();
+        ////Toast.makeText(activityLogin.this, Boolean.toString(loadData("username").equals("")) + ":::" +  Boolean.toString(loadData("username").equals("")), Toast.LENGTH_LONG).show();
 
         if(loadData("username").equals("") && loadData("password").equals("")){
 
