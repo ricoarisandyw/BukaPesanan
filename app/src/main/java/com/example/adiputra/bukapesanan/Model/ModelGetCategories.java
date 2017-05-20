@@ -1,4 +1,4 @@
-package com.example.adiputra.bukapesanan;
+package com.example.adiputra.bukapesanan.Model;
 
 import java.util.List;
 

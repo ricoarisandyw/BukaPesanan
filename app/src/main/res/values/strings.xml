@@ -25,4 +25,8 @@
         <item>Smartphone</item>
     </string-array>
 
+    <string name="pesanan" color="#ffd800">
+        Pesanan
+    </string>
+
 </resources>

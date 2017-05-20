@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.adiputra.bukapesanan.ListPesananActivity">
+    tools:context="com.example.adiputra.bukapesanan.Activity.ListPesananActivity">
 
     <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
@@ -74,7 +74,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:showIn="@layout/activity_list_pesanan"
-        tools:context=".ListPesananActivity"
+        tools:context=".Activity.ListPesananActivity"
         android:layout_below="@+id/toolbar">
 
         <ProgressBar

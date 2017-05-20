@@ -2,12 +2,12 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:id="@+id/nav_pesanan"
         android:icon="@drawable/ic_message_black_24dp"
-        android:title="Pesanan"/>
+        android:title="@string/pesanan"/>
     <item android:id="@+id/nav_bid"
-        android:icon="@drawable/ic_star_border_black_24dp"
+        android:icon="@drawable/ic_feedback_black_24dp"
         android:title="Bid"/>
     <item android:id="@+id/nav_proyek"
-        android:icon="@drawable/ic_star_border_black_24dp"
+        android:icon="@drawable/ic_assignment_black_24dp"
         android:title="Proyek"/>
     <item android:id="@+id/nav_settings"
         android:icon="@drawable/ic_settings_black_24dp"

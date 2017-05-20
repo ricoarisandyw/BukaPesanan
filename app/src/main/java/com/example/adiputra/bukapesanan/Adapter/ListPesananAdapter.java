@@ -1,4 +1,4 @@
-package com.example.adiputra.bukapesanan;
+package com.example.adiputra.bukapesanan.Adapter;
 
 import android.content.Context;
 import android.support.v7.widget.CardView;
@@ -6,9 +6,11 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.adiputra.bukapesanan.Model.ModelListPesanan;
+import com.example.adiputra.bukapesanan.R;
 
 import java.util.List;
 

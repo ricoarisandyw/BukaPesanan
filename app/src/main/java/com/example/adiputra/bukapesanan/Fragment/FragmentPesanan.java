@@ -1,29 +1,21 @@
-package com.example.adiputra.bukapesanan;
+package com.example.adiputra.bukapesanan.Fragment;
 
 import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.util.Base64;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.Toast;
 
-import com.android.volley.AuthFailureError;
-import com.android.volley.Request;
 import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
+import com.example.adiputra.bukapesanan.Activity.InputPesananActivity;
+import com.example.adiputra.bukapesanan.Activity.ListPesananActivity;
+import com.example.adiputra.bukapesanan.Activity.ListPesanankuActivity;
+import com.example.adiputra.bukapesanan.Activity.MainActivity;
+import com.example.adiputra.bukapesanan.R;
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Created by Aji Guna on 12/05/2017.

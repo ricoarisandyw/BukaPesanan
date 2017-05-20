@@ -1,10 +1,8 @@
-package com.example.adiputra.bukapesanan;
+package com.example.adiputra.bukapesanan.Activity;
 
-        import android.app.FragmentTransaction;
         import android.app.ProgressDialog;
         import android.content.Intent;
         import android.content.SharedPreferences;
-        import android.net.Uri;
         import android.support.design.widget.NavigationView;
         import android.support.v4.widget.DrawerLayout;
         import android.support.v7.app.ActionBarDrawerToggle;
@@ -16,8 +14,6 @@ package com.example.adiputra.bukapesanan;
         import android.view.View;
         import android.widget.Button;
         import android.widget.EditText;
-        import android.widget.ImageView;
-        import android.widget.TextView;
         import android.widget.Toast;
 
         import com.android.volley.AuthFailureError;
@@ -27,7 +23,8 @@ package com.example.adiputra.bukapesanan;
         import com.android.volley.VolleyError;
         import com.android.volley.toolbox.StringRequest;
         import com.android.volley.toolbox.Volley;
-        import com.bumptech.glide.Glide;
+        import com.example.adiputra.bukapesanan.Model.ModelGetUser;
+        import com.example.adiputra.bukapesanan.R;
         import com.google.gson.Gson;
         import com.google.gson.GsonBuilder;
 
@@ -62,7 +59,7 @@ public class activityLogin extends AppCompatActivity {
         passtxt = (EditText) findViewById(R.id.passText);
         btnlogin = (Button) findViewById(R.id.btnLogin);
 
-        //Toast.makeText(activityLogin.this, Boolean.toString(loadData("username").equals("")) + ":::" +  Boolean.toString(loadData("username").equals("")), Toast.LENGTH_LONG).show();
+        ////Toast.makeText(activityLogin.this, Boolean.toString(loadData("username").equals("")) + ":::" +  Boolean.toString(loadData("username").equals("")), Toast.LENGTH_LONG).show();
 
         if(loadData("username").equals("") && loadData("password").equals("")){
 
