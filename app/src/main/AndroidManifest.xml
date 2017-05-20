@@ -17,23 +17,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.example.adiputra.bukapesanan.activityLogin">
+        <activity android:name="com.example.adiputra.bukapesanan.Activity.activityLogin">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity">
+            android:name=".Activity.MainActivity">
         </activity>
         <activity
-            android:name=".InputPesananActivity">
+            android:name=".Activity.InputPesananActivity">
         </activity>
         <activity
-            android:name=".ListPesananActivity">
+            android:name=".Activity.ListPesananActivity">
         </activity>
         <activity
-            android:name=".ListPesanankuActivity">
+            android:name=".Activity.ListPesanankuActivity">
         </activity>
     </application>
 

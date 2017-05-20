@@ -1,11 +1,8 @@
-package com.example.adiputra.bukapesanan;
+package com.example.adiputra.bukapesanan.Activity;
 
 import android.app.FragmentTransaction;
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -29,10 +26,15 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
+import com.example.adiputra.bukapesanan.Fragment.FragmentBid;
+import com.example.adiputra.bukapesanan.Fragment.FragmentPengaturan;
+import com.example.adiputra.bukapesanan.Fragment.FragmentPesanan;
+import com.example.adiputra.bukapesanan.Fragment.FragmentProyek;
+import com.example.adiputra.bukapesanan.Model.ModelGetUserInfo;
+import com.example.adiputra.bukapesanan.R;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 

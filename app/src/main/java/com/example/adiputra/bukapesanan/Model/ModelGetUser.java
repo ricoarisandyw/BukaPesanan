@@ -1,4 +1,4 @@
-package com.example.adiputra.bukapesanan;
+package com.example.adiputra.bukapesanan.Model;
 
 /**
  * Created by adiputra on 5/12/2017.
