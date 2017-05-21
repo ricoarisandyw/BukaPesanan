@@ -9,7 +9,7 @@
         <!--android:layout_width=""-->
         <!--android:layout_height="" />-->
 
-    <ImageView
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/ivAvatar"
         android:layout_marginTop="@dimen/_10sdp"
         android:layout_width="@dimen/_70sdp"

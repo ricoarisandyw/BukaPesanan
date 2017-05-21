@@ -294,7 +294,7 @@ public class InputPesananActivity extends AppCompatActivity implements View.OnCl
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(InputPesananActivity.this,"InputAct : " + error.toString()+"\n"+gambar,Toast.LENGTH_LONG).show();
+                        Toast.makeText(InputPesananActivity.this,"Cek Koneksi Internet"+"\n"+gambar,Toast.LENGTH_LONG).show();
                     }
                 }){
             @Override
