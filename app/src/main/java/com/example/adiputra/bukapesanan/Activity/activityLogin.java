@@ -116,7 +116,7 @@ public class activityLogin extends AppCompatActivity {
                                     Toast.makeText(activityLogin.this, mgu.getMessage(), Toast.LENGTH_LONG).show();
                                 }else if(mgu.getStatus().equals("OK")){
                                     saveData("username", uname);
-                                    saveData("password", mgu.getToken());
+                                    saveData("password", pass);
                                     Toast.makeText(activityLogin.this, "Login berhasil", Toast.LENGTH_LONG).show();
                                     Intent i = new Intent(activityLogin.this, MainActivity.class);
                                     i.putExtra("userId",String.valueOf(mgu.getUser_id()));

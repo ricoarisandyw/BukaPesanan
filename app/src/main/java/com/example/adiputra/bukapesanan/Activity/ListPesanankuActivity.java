@@ -54,6 +54,7 @@ public class ListPesanankuActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i = new Intent(ListPesanankuActivity.this, MainActivity.class);
                 startActivity(i);
+                ListPesanankuActivity.this.finish();
             }
         });
 

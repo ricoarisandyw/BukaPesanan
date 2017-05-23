@@ -121,11 +121,11 @@ public class InputPesananActivity extends AppCompatActivity implements View.OnCl
         etNamaPesanan = (EditText) findViewById(R.id.etNamaPesanan);
         mySpinner = (Spinner)findViewById(R.id.spinnerKategori);
         etHarga = (EditText) findViewById(R.id.etHargaPesanan);
-        etDeskripsi = (EditText) findViewById(R.id.etDeskripsi);
+        etDeskripsi = (EditText) findViewById(R.id.etDeskripsiBid);
         btnBrowse = (Button) findViewById(R.id.btnBrowse);
         btnBrowse.setOnClickListener(this);
         ivGambarPesanan = (ImageView) findViewById(R.id.ivGambarPesanan);
-        etLokasi = (EditText) findViewById(R.id.etLokasiPesanan);
+        etLokasi = (EditText) findViewById(R.id.etLokasiBid);
         btnSubmitPesanan = (Button) findViewById(R.id.btnSubmitPesanan);
         btnSubmitPesanan.setOnClickListener(this);
     }

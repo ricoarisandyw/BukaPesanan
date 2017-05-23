@@ -40,6 +40,11 @@ public class ModelListPesanan {
         this.nama = nama;
         this.harga = harga;
     }
+    public ModelListPesanan(int id, String nama, String harga){
+        this.id = id;
+        this.nama = nama;
+        this.harga = harga;
+    }
 
     public ModelListPesanan(String nama, String kategori, String harga, String deskripsi, String lokasi, String created_at){
         this.nama = nama;

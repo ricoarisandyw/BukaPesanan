@@ -1,6 +1,8 @@
 package com.example.adiputra.bukapesanan.Adapter;
 
 import android.content.Context;
+import android.content.DialogInterface;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -9,6 +11,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.adiputra.bukapesanan.Activity.InputPesananActivity;
+import com.example.adiputra.bukapesanan.Helper.Utility;
 import com.example.adiputra.bukapesanan.Model.ModelListPesanan;
 import com.example.adiputra.bukapesanan.R;
 
@@ -39,7 +43,8 @@ public class ListPesananAdapter extends RecyclerView.Adapter<ListPesananAdapter.
             cv.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(v.getContext(), "Position:" + Integer.toString(getPosition())+ "\nName: "+getItemViewType(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(v.getContext(), "Position:" + Integer.toString(getPosition())+
+                            "\nName: "+ getItemId(), Toast.LENGTH_SHORT).show();
                 }
             });
         }

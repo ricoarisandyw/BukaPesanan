@@ -39,10 +39,11 @@ public class FragmentPesanan extends Fragment {
         final Button btnPesanan = (Button) view.findViewById(R.id.btnPesanan);
         Button btnListPesanan = (Button) view.findViewById(R.id.btnListPesanan);
         Button btnListPesananku = (Button) view.findViewById(R.id.btnListPesananku);
+//        Button btnProyekku = (Button) view.findViewById(R.id.btnProyekku);
+//        Button btnTawaranku = (Button) view.findViewById(R.id.btnTawaranku);
 
         MainActivity activity = (MainActivity) getActivity();
         final String USER_ID = activity.getMyData();
-
         btnPesanan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -51,7 +52,6 @@ public class FragmentPesanan extends Fragment {
                 startActivity(i);
             }
         });
-
         btnListPesanan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -59,7 +59,6 @@ public class FragmentPesanan extends Fragment {
                 startActivity(i);
             }
         });
-
         btnListPesananku.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -68,7 +67,6 @@ public class FragmentPesanan extends Fragment {
                 startActivity(i);
             }
         });
-
         return view;
     }
 }

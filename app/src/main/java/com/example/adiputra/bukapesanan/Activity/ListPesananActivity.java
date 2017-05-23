@@ -44,16 +44,12 @@ public class ListPesananActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_pesanan);
-//        ActionBar actionBar = getSupportActionBar();
-//        actionBar.hide();
-
         ImageButton backBtn = (ImageButton) findViewById(R.id.btnBack);
 
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(ListPesananActivity.this, MainActivity.class);
-                startActivity(i);
+                ListPesananActivity.this.finish();
             }
         });
 
@@ -88,14 +84,9 @@ public class ListPesananActivity extends AppCompatActivity {
                             for (ModelListPesanan post : posts) {
                                 Log.i("PostActivity", post + ": " + post.getNama());
                                 modelListPesanan.add(new ModelListPesanan(
-                                        //post.getId(),
-                                        post.getNama(),
-                                        //post.getKategori(),
-                                        post.getHarga()
-                                        //post.getDeskripsi(),
-                                        //post.getGambar(),
-                                        //post.getLokasi()
-                                        ));
+                                    post.getNama(),
+                                    post.getHarga()
+                                ));
                             }
                             spinner.setVisibility(View.GONE);
                             adapter.notifyDataSetChanged();
@@ -112,13 +103,6 @@ public class ListPesananActivity extends AppCompatActivity {
                 }
         );
         requestQueue.add(req);
-
         //initializeData();
-    }
-
-    @Override
-    public void onBackPressed(){
-        super.onBackPressed();
-        finish();
     }
 }

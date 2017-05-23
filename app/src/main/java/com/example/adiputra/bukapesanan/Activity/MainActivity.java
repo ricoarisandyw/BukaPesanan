@@ -204,4 +204,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Log.d(name + " keluar:", data);
         return data;
     }
+
+    public boolean hasResponse(){
+        return true;
+    }
 }
