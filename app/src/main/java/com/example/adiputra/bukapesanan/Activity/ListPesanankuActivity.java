@@ -93,12 +93,10 @@ public class ListPesanankuActivity extends AppCompatActivity {
                                 Log.i("PostActivity", post + ": " + post.getNama());
                                 //Toast.makeText(ListPesanankuActivity.this, post.getNama()+" "+post.getUser_id(), Toast.LENGTH_SHORT).show();
                                 modelListPesananku.add(new ModelListPesanan(
-                                        //post.getId(),
                                         post.getNama(),
                                         post.getKategori(),
                                         post.getHarga(),
                                         post.getDeskripsi(),
-                                        //post.getGambar(),
                                         post.getLokasi(),
                                         post.getCreated_at()
                                 ));

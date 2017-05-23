@@ -1,64 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    android:paddingTop="@dimen/_2sdp"
-    android:layout_width="match_parent"
-    android:background="?android:attr/selectableItemBackground"
-    android:layout_height="wrap_content">
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <android.support.v7.widget.CardView
+        android:id="@+id/cvTawaran"
         android:layout_width="@dimen/_110sdp"
         android:layout_height="wrap_content"
-        android:id="@+id/cv"
         android:clickable="true"
-        android:focusableInTouchMode="true"
-        >
+        android:focusableInTouchMode="true">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/border_cardview"
-            >
+            android:background="@drawable/border_cardview">
 
             <ImageView
+                android:id="@+id/ivListGambarTawaran"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_110sdp"
-                android:id="@+id/ivListGambarTawaran"
-                android:paddingTop="@dimen/_5sdp"
-                android:src="@drawable/ic_image_black_24dp"
+                android:layout_alignParentEnd="true"
                 android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true"
                 android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true" />
+                android:layout_alignParentTop="true"
+                android:paddingTop="@dimen/_5sdp"
+                android:src="@drawable/ic_image_black_24dp" />
 
             <TextView
+                android:id="@+id/tvListNamaTawaran"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_25sdp"
+                android:layout_below="@+id/ivListGambarTawaran"
+                android:background="@color/textBukaLapak"
                 android:digits="5"
-                android:paddingTop="@dimen/_5sdp"
                 android:paddingLeft="@dimen/_5sdp"
                 android:paddingRight="@dimen/_5sdp"
-                android:id="@+id/tvListNamaTawaran"
+                android:paddingTop="@dimen/_5sdp"
                 android:text="Tas Gaul"
-                android:layout_below="@+id/ivListGambarTawaran"
-                android:textSize="13sp"
-                android:textStyle="bold"
                 android:textColor="@color/textWhite"
-                android:background="@color/textBukaLapak"
-                />
+                android:textSize="13sp"
+                android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/tvListHargaTawaran"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_25sdp"
-                android:id="@+id/tvListHargaPesanan"
-                android:text="100-200rb"
-                android:textSize="@dimen/_11sdp"
                 android:layout_below="@+id/tvListNamaTawaran"
-                android:textColor="@color/textWhite"
                 android:background="@color/textBukaLapak"
                 android:padding="@dimen/_5sdp"
-                />
+                android:text="100-200rb"
+                android:textColor="@color/textWhite"
+                android:textSize="@dimen/_11sdp" />
 
         </RelativeLayout>
     </android.support.v7.widget.CardView>

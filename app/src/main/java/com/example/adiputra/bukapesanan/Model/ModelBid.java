@@ -32,6 +32,11 @@ public class ModelBid {
         this.created_at = created_at;
     }
 
+    public ModelBid(int id, String harga){
+        this.id = id;
+        this.harga = harga;
+    }
+
     public int getId() {
         return id;
     }
@@ -95,4 +100,6 @@ public class ModelBid {
     public void setUser_id(String user_id) {
         this.user_id = user_id;
     }
+
+
 }

@@ -1,9 +1,12 @@
 package com.example.adiputra.bukapesanan.Fragment;
 
 import android.app.Fragment;
+import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -14,6 +17,7 @@ import android.view.ViewGroup;
 import android.widget.PopupWindow;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -37,7 +41,7 @@ import java.util.List;
  * Created by Aji Guna on 12/05/2017.
  */
 
-public class FragmentBid extends Fragment {
+public class FragmentBid extends Fragment{
 
     Context context;
     private List<ModelListPesanan> modelListPesanan = new ArrayList<>();
@@ -48,15 +52,13 @@ public class FragmentBid extends Fragment {
     private Gson gson;
     private ProgressBar spinner;
 
-    public FragmentBid(){
-
-    }
+    public FragmentBid(){}
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater,ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_bid, container, false);
-        //        TODO(1) : Tampilkan daftar semua pesanan dan bisa di klik
+        //        TODO(1) : (Complete) Tampilkan daftar semua pesanan dan bisa di klik
         TextView message = (TextView) view.findViewById(R.id.fragmentBidMessage);
         message.setText("Loading . . .");
         adapter = new ListPesananAdapter(modelListPesanan, context);
@@ -106,12 +108,6 @@ public class FragmentBid extends Fragment {
         requestQueue.add(req);
 
 //        TODO(2) : Filter Pesanan
-//        TODO(3) : Lakukan Bid pada pesanan yang dipilih -> Buka layout pesanan
-
-
-
-//        TODO(4) : Masukkan data ke daftar tawaranku
-//        TODO(5) : Tampilkan daftar proyek diterima
 
         message.setText("1. Pilih Pesanan yang kamu sanggupi.");
         return view;

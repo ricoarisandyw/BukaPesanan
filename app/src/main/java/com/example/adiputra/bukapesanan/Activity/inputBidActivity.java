@@ -22,6 +22,7 @@ import com.google.gson.GsonBuilder;
 import java.util.HashMap;
 import java.util.Map;
 
+
 public class inputBidActivity extends AppCompatActivity {
 
     TextView txtDetail;
@@ -32,8 +33,6 @@ public class inputBidActivity extends AppCompatActivity {
 
     private RequestQueue requestQueue;
     private Gson gson;
-
-    Bundle tvB = getIntent().getExtras();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,22 +45,25 @@ public class inputBidActivity extends AppCompatActivity {
         etLokasi = (EditText) findViewById(R.id.etLokasiBid);
         btnBid =  (Button) findViewById(R.id.btnSubmitBid);
 
-//        txtDetail.setText("Nama > " + nama);
-//        txtDetail.append("Harga  > " + nama);
-//        txtDetail.setText("Deskripsi > " + nama);
-    }
+        String idBid = getIntent().getStringExtra("id");
+        String namaBid = getIntent().getStringExtra("nama");
+        String lokasiBid = getIntent().getStringExtra("lokasi");
+        String hargaBid = getIntent().getStringExtra("harga");
+        Toast.makeText(inputBidActivity.this, idBid, Toast.LENGTH_LONG).show();
 
+        txtDetail.setText("Nama > " + idBid);
+        txtDetail.append("Harga  > " + namaBid);
+        txtDetail.append("Deskripsi > " + hargaBid);
+        txtDetail.append("Deskripsi > " + lokasiBid);
+    }
+    //        TODO(4) : Masukkan data ke daftar tawaranku > Bisa Ubah,Hapus.
     private void postData(){
         final String harga = etHarga.getText().toString().trim();
         final String deskripsi = etDeskripsi.getText().toString().trim();
         final String lokasi = etLokasi.getText().toString().trim();
         final String namaPesanan = "";
+        final String user_id = "";
 //        final String gambar = getStringImage(bitmap);
-        final String id = tvB.getString("id");
-        final String user_id = tvB.getString("user_id");
-        //etNamaPesanan.setText(user_id);
-        //TextView tvTitleBar = (TextView) findViewById(R.id.tvTitleBar);
-        //tvTitleBar.setText(user_id);
 
         requestQueue = Volley.newRequestQueue(super.getApplication());
         GsonBuilder gsonBuilder = new GsonBuilder();
@@ -98,6 +100,4 @@ public class inputBidActivity extends AppCompatActivity {
         };
         requestQueue.add(stringRequest);
     }
-
-    private static final String CATEGORIES = "https://api.bukalapak.com/v2/categories.json";
 }
