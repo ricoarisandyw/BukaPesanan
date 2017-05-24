@@ -35,7 +35,7 @@ public class ListPesananAdapter extends RecyclerView.Adapter<ListPesananAdapter.
             super(itemView);
             //ivListGambarPesanan = (ImageView)itemView.findViewById(R.id.ivListGambarPesanan);
             cv = (CardView) itemView.findViewById(R.id.cv);
-            tvListNamaPesanan = (TextView)itemView.findViewById(R.id.tvListNamaTawaran);
+            tvListNamaPesanan = (TextView)itemView.findViewById(R.id.tvListNamaPesanan);
             tvListHargaPesanan = (TextView)itemView.findViewById(R.id.tvListHargaPesanan);
         }
     }
@@ -74,6 +74,7 @@ public class ListPesananAdapter extends RecyclerView.Adapter<ListPesananAdapter.
                 i.putExtra("nama", String.valueOf(l.getNama()));
                 i.putExtra("harga", String.valueOf(l.getHarga()));
                 i.putExtra("lokasi", String.valueOf(l.getLokasi()));
+                i.putExtra("deskripsi", String.valueOf(l.getDeskripsi()));
                 v.getContext().startActivity(i);
             }
         });

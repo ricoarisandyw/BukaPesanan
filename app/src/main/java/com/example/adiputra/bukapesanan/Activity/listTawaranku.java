@@ -1,5 +1,6 @@
 package com.example.adiputra.bukapesanan.Activity;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
@@ -40,7 +41,7 @@ public class listTawaranku extends AppCompatActivity {
     public static PopupWindow mPopupWindow;
     private RequestQueue requestQueue;
     private Gson gson;
-    private ProgressBar spinner;
+    private ProgressDialog progress;
 
 
     @Override
@@ -56,11 +57,16 @@ public class listTawaranku extends AppCompatActivity {
             }
         });
 
-        spinner=(ProgressBar)findViewById(R.id.progressBar77);
-        spinner.setVisibility(View.VISIBLE);
+        progress = new ProgressDialog(listTawaranku.this);
+        progress.setMessage("Please Wait...");
+        progress.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        progress.setIndeterminate(true);
+        progress.setProgress(0);
+        progress.setCanceledOnTouchOutside(false);
+        progress.show();
 
         adapter = new ListTawaranAdapter(modelBid , context);
-        recyclerView = (RecyclerView) findViewById(R.id.listTawaranku);
+        recyclerView = (RecyclerView) findViewById(R.id.listTawaran);
         RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(listTawaranku.this, 3);
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -85,11 +91,11 @@ public class listTawaranku extends AppCompatActivity {
                             Log.i("PostActivity", posts.size() + " posts loaded.");
                             for (ModelBid post : posts) {
                                 modelBid.add(new ModelBid(
-                                    post.getId(),
+                                    post.getLokasi(),
                                     post.getHarga()
                                 ));
                             }
-                            spinner.setVisibility(View.GONE);
+                            progress.hide();
                             adapter.notifyDataSetChanged();
                         }catch(Exception e){
                             e.printStackTrace();

@@ -1,8 +1,11 @@
 package com.example.adiputra.bukapesanan.Activity;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -19,6 +22,7 @@ import com.example.adiputra.bukapesanan.R;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -38,23 +42,35 @@ public class inputBidActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_input_bid);
-
         txtDetail = (TextView) findViewById(R.id.txtDetailPesanan);
         etHarga = (EditText) findViewById(R.id.etHargaBid);
         etDeskripsi = (EditText) findViewById(R.id.etDeskripsiBid);
         etLokasi = (EditText) findViewById(R.id.etLokasiBid);
         btnBid =  (Button) findViewById(R.id.btnSubmitBid);
-
         String idBid = getIntent().getStringExtra("id");
         String namaBid = getIntent().getStringExtra("nama");
         String lokasiBid = getIntent().getStringExtra("lokasi");
         String hargaBid = getIntent().getStringExtra("harga");
+        String deskripsi = getIntent().getStringExtra("deksripsi");
         Toast.makeText(inputBidActivity.this, idBid, Toast.LENGTH_LONG).show();
+        txtDetail.setText("id > " + idBid);
+        txtDetail.append("\nNama  > " + namaBid);
+        txtDetail.append("\nHarga > " + hargaBid);
+        txtDetail.append("\nLokasi > " + lokasiBid);
+        txtDetail.append("\nDeskripsi > " + deskripsi);
 
-        txtDetail.setText("Nama > " + idBid);
-        txtDetail.append("Harga  > " + namaBid);
-        txtDetail.append("Deskripsi > " + hargaBid);
-        txtDetail.append("Deskripsi > " + lokasiBid);
+        btnBid.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(etHarga.getText().toString().equals("")){
+                    Toast.makeText(inputBidActivity.this, "Something Missing", Toast.LENGTH_LONG).show();
+                }else{
+                    postData();
+                    Intent i = new Intent(inputBidActivity.this, listTawaranku.class);
+                    startActivity(i);
+                }
+            }
+        });
     }
     //        TODO(4) : Masukkan data ke daftar tawaranku > Bisa Ubah,Hapus.
     private void postData(){
@@ -70,7 +86,7 @@ public class inputBidActivity extends AppCompatActivity {
         gsonBuilder.setDateFormat("M/d/yy hh:mm a");
         gson = gsonBuilder.create();
 
-        String INPUT_PESANAN_URL = "http://adiputra17.it.student.pens.ac.id/android/BukaPesanan/insert_pesanan.php";
+        String INPUT_PESANAN_URL = "http://adiputra17.it.student.pens.ac.id/android/BukaPesanan/create_bid.php";
         StringRequest stringRequest = new StringRequest(Request.Method.POST, INPUT_PESANAN_URL,
                 new Response.Listener<String>() {
                     @Override
@@ -87,17 +103,27 @@ public class inputBidActivity extends AppCompatActivity {
             @Override
             protected Map<String,String> getParams(){
                 Map<String,String> params = new HashMap<String, String>();
-                params.put("id",lokasi);
-                params.put("harga",namaPesanan);
+                String user_id = loadData("user_id");
+                Date date = new Date();
+                String now = Integer.toString(date.getDate());
+                params.put("id","");
+                params.put("harga",harga);
                 params.put("deskripsi",deskripsi);
                 params.put("lampiran",harga);
                 params.put("lokasi",lokasi);
                 params.put("user_id",user_id);
                 params.put("pesanan_id",user_id);
-                params.put("created_at",user_id);
+                params.put("created_at",now);
                 return params;
             }
         };
         requestQueue.add(stringRequest);
+    }
+
+    public String loadData(String name){
+        SharedPreferences prefs = getSharedPreferences("UserData", 0);
+        String data = prefs.getString(name,"");
+        Log.d(name + " keluar:", data);
+        return data;
     }
 }

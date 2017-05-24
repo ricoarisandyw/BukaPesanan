@@ -88,8 +88,11 @@ public class ListPesananActivity extends AppCompatActivity {
                             for (ModelListPesanan post : posts) {
                                 Log.i("PostActivity", post + ": " + post.getNama());
                                 modelListPesanan.add(new ModelListPesanan(
+                                    post.getId(),
                                     post.getNama(),
-                                    post.getHarga()
+                                    post.getHarga(),
+                                    post.getLokasi(),
+                                    post.getDeskripsi()
                                 ));
                             }
                             progress.hide();

@@ -29,13 +29,11 @@ public class ListTawaranAdapter extends RecyclerView.Adapter<ListTawaranAdapter.
     public class ListTawaranViewHolder extends RecyclerView.ViewHolder {
         CardView cv;
 
-        //ImageView ivListGambarPesanan;
         TextView tvListNamaTawaran;
         TextView tvListHargaTawaran;
 
         ListTawaranViewHolder(final View itemView) {
             super(itemView);
-            //ivListGambarPesanan = (ImageView)itemView.findViewById(R.id.ivListGambarPesanan);
             cv = (CardView) itemView.findViewById(R.id.cvTawaran);
             tvListNamaTawaran = (TextView)itemView.findViewById(R.id.tvListNamaTawaran);
             tvListHargaTawaran = (TextView)itemView.findViewById(R.id.tvListHargaTawaran);
@@ -66,7 +64,7 @@ public class ListTawaranAdapter extends RecyclerView.Adapter<ListTawaranAdapter.
         final ModelBid l = (ModelBid) listTawaran.get(position);
         listViewHolder.tvListNamaTawaran.setText(l.getLokasi());
         listViewHolder.tvListHargaTawaran.setText(l.getHarga());
-        //        TODO(3) : (Completed) Lakukan Bid pada pesanan yang dipilih -> Buka layout pesanan
+        //        TODO : Edit Bid
         listViewHolder.cv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

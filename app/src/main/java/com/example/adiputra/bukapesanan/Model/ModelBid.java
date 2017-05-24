@@ -36,6 +36,10 @@ public class ModelBid {
         this.id = id;
         this.harga = harga;
     }
+    public ModelBid(String lokasi, String harga){
+        this.lokasi = lokasi;
+        this.harga = harga;
+    }
 
     public int getId() {
         return id;
