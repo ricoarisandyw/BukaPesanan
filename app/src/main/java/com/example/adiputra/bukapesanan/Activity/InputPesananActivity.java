@@ -112,6 +112,7 @@ public class InputPesananActivity extends AppCompatActivity implements View.OnCl
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                finish();
                 Intent i = new Intent(InputPesananActivity.this, MainActivity.class);
                 startActivity(i);
             }

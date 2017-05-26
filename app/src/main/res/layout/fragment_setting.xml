@@ -1,10 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Setting"/>
-</LinearLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:padding="@dimen/_10sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/ivNotif"
+                android:src="@drawable/ic_notifications_black_24dp"
+                android:padding="@dimen/_20sdp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/tvNotif"
+                android:layout_toRightOf="@+id/ivNotif"
+                android:text="Notifications"
+                android:textSize="@dimen/_14sdp"
+                android:textColor="#000"
+                android:padding="@dimen/_20sdp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <View
+                android:id="@+id/v1"
+                android:layout_below="@+id/tvNotif"
+                android:background="@color/textBukaLapak"
+                android:layout_width="@dimen/_220sdp"
+                android:layout_alignParentRight="true"
+                android:layout_height="@dimen/_1sdp" />
+
+            <ImageView
+                android:id="@+id/ivAccount"
+                android:layout_below="@+id/v1"
+                android:src="@drawable/ic_account_circle_black_24dp"
+                android:padding="@dimen/_20sdp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/tvAccount"
+                android:layout_below="@+id/v1"
+                android:layout_toRightOf="@+id/ivAccount"
+                android:text="Account"
+                android:textSize="@dimen/_14sdp"
+                android:textColor="#000"
+                android:padding="@dimen/_20sdp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <View
+                android:id="@+id/v2"
+                android:layout_below="@+id/tvAccount"
+                android:background="@color/textBukaLapak"
+                android:layout_width="@dimen/_220sdp"
+                android:layout_alignParentRight="true"
+                android:layout_height="@dimen/_1sdp" />
+
+            <ImageView
+                android:id="@+id/ivHelp"
+                android:layout_below="@+id/v2"
+                android:src="@drawable/ic_help_black_24dp"
+                android:padding="@dimen/_20sdp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/tvHelp"
+                android:layout_below="@+id/v2"
+                android:layout_toRightOf="@+id/ivAccount"
+                android:text="Help"
+                android:textSize="@dimen/_14sdp"
+                android:textColor="#000"
+                android:padding="@dimen/_20sdp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <View
+                android:id="@+id/v3"
+                android:layout_below="@+id/tvHelp"
+                android:background="@color/textBukaLapak"
+                android:layout_width="@dimen/_220sdp"
+                android:layout_alignParentRight="true"
+                android:layout_height="@dimen/_1sdp" />
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</RelativeLayout>
