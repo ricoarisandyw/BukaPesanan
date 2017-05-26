@@ -54,6 +54,7 @@ public class ListPesanankuActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i = new Intent(ListPesanankuActivity.this, MainActivity.class);
                 startActivity(i);
+                ListPesanankuActivity.this.finish();
             }
         });
 
@@ -92,12 +93,10 @@ public class ListPesanankuActivity extends AppCompatActivity {
                                 Log.i("PostActivity", post + ": " + post.getNama());
                                 //Toast.makeText(ListPesanankuActivity.this, post.getNama()+" "+post.getUser_id(), Toast.LENGTH_SHORT).show();
                                 modelListPesananku.add(new ModelListPesanan(
-                                        //post.getId(),
                                         post.getNama(),
                                         post.getKategori(),
                                         post.getHarga(),
                                         post.getDeskripsi(),
-                                        //post.getGambar(),
                                         post.getLokasi(),
                                         post.getCreated_at()
                                 ));

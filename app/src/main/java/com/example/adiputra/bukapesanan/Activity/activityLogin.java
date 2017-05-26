@@ -59,12 +59,9 @@ public class activityLogin extends AppCompatActivity {
         passtxt = (EditText) findViewById(R.id.passText);
         btnlogin = (Button) findViewById(R.id.btnLogin);
 
-        ////Toast.makeText(activityLogin.this, Boolean.toString(loadData("username").equals("")) + ":::" +  Boolean.toString(loadData("username").equals("")), Toast.LENGTH_LONG).show();
-
         if(loadData("username").equals("") && loadData("password").equals("")){
 
         }else{
-            //Toast.makeText(activityLogin.this, "Proses Masuk!!!" , Toast.LENGTH_LONG).show();
             String usernameCache = loadData("username").toString();
             String passwordCache = loadData("password").toString();
             progress=new ProgressDialog(activityLogin.this);
@@ -80,14 +77,14 @@ public class activityLogin extends AppCompatActivity {
         btnlogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                progress=new ProgressDialog(activityLogin.this);
-                progress.setMessage("Please Wait...");
-                progress.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-                progress.setIndeterminate(true);
-                progress.setProgress(0);
-                progress.setCanceledOnTouchOutside(false);
-                progress.show();
-                cekLog(nametxt.getText().toString(), passtxt.getText().toString());
+            progress=new ProgressDialog(activityLogin.this);
+            progress.setMessage("Please Wait...");
+            progress.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+            progress.setIndeterminate(true);
+            progress.setProgress(0);
+            progress.setCanceledOnTouchOutside(false);
+            progress.show();
+            cekLog(nametxt.getText().toString(), passtxt.getText().toString());
             }
         });
     }
@@ -116,7 +113,8 @@ public class activityLogin extends AppCompatActivity {
                                     Toast.makeText(activityLogin.this, mgu.getMessage(), Toast.LENGTH_LONG).show();
                                 }else if(mgu.getStatus().equals("OK")){
                                     saveData("username", uname);
-                                    saveData("password", mgu.getToken());
+                                    saveData("password", pass);
+                                    saveData("user_id", Integer.toString(mgu.getUser_id()));
                                     Toast.makeText(activityLogin.this, "Login berhasil", Toast.LENGTH_LONG).show();
                                     Intent i = new Intent(activityLogin.this, MainActivity.class);
                                     i.putExtra("userId",String.valueOf(mgu.getUser_id()));
@@ -145,7 +143,6 @@ public class activityLogin extends AppCompatActivity {
                     String creds = String.format("%s:%s",uname,pass);
                     String auth = "Basic " + Base64.encodeToString(creds.getBytes(), Base64.DEFAULT);
                     headers.put("Authorization", auth);
-
                     return headers;
                 }
             };

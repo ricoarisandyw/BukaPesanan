@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="com.example.adiputra.bukapesanan.Activity.ListPesananActivity">
+    tools:context="com.example.adiputra.bukapesanan.Activity.listTawaranku"
+    android:orientation="horizontal">
 
     <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_55sdp"
+        android:layout_height="@dimen/_50sdp"
         android:background="@color/colorToolbar"
         android:contentInsetLeft="0dp"
         android:contentInsetStart="0dp"
@@ -28,28 +27,29 @@
 
             <ImageButton
                 android:layout_width="@dimen/_50sdp"
-                android:layout_height="match_parent"
+                android:layout_height="@dimen/_50sdp"
                 android:layout_centerVertical="true"
                 android:theme="@style/styleButton"
-                android:id="@+id/btnBack"
+                android:id="@+id/btnBack77"
                 android:layout_alignParentLeft="true"
-                android:src="@drawable/ic_arrow_back_black_24dp" />
+                android:src="@drawable/ic_arrow_back_black_24dp"
+                />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="List Pesananku"
+                android:text="List Pesanan"
                 android:layout_marginLeft="@dimen/_10sdp"
                 android:textColor="@color/textWhite"
                 android:textSize="@dimen/textBlack"
-                android:layout_toRightOf="@+id/btnBack"
-                android:layout_centerVertical="true" />
+                android:layout_toRightOf="@+id/btnBack77"
+                android:layout_centerVertical="true"
+                />
 
             <ImageButton
-                android:layout_centerVertical="true"
-                android:id="@+id/addPesananButton"
+                android:id="@+id/btnAddTawaran"
                 android:layout_width="@dimen/_50sdp"
-                android:layout_height="match_parent"
+                android:layout_height="@dimen/_50sdp"
                 android:theme="@style/styleButton"
                 android:src="@drawable/ic_add_black_24dp"
                 android:layout_alignParentRight="true"/>
@@ -58,35 +58,21 @@
 
     </android.support.v7.widget.Toolbar>
 
-    <android.support.v7.widget.SearchView
-        android:id="@+id/btnSearch"
-        android:layout_below="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:queryHint="Cari pesanan..."
-        android:background="@drawable/button_white"
-        android:layout_height="@dimen/_40sdp">
-
-    </android.support.v7.widget.SearchView>
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:showIn="@layout/activity_list_pesanan"
-        tools:context=".Activity.ListPesananActivity"
+        tools:showIn="@layout/activity_list_tawaran"
+        tools:context=".Activity.ListTawaranActivity"
         android:layout_below="@+id/toolbar">
-
-        <ProgressBar
-            android:id="@+id/progressBar1"
-            style="?android:attr/progressBarStyleInverse"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true" />
 
         <android.support.v7.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/listPesananku">
+            android:id="@+id/listTawaran">
+
         </android.support.v7.widget.RecyclerView>
+
     </RelativeLayout>
-</LinearLayout>
+
+
+</RelativeLayout>

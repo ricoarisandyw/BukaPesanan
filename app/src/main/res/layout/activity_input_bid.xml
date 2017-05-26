@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.adiputra.bukapesanan.Activity.InputPesananActivity">
+    tools:context="com.example.adiputra.bukapesanan.Activity.inputBidActivity">
 
     <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
@@ -72,39 +72,15 @@
                 android:id="@+id/tvDetailPesanan"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Nama Pesanan : "
-                android:textSize="@dimen/textBlack"
-                android:textColor="@color/textBlack"/>
+                android:text="Detail Pesanan :"
+                android:textColor="@color/textBlack"
+                android:textSize="@dimen/textBlack" />
 
-            <EditText
-                android:id="@+id/etNamaPesanan"
-                android:layout_below="@+id/tvDetailPesanan"
-                android:textColorHint="@color/textHint"
-                android:layout_width="match_parent"
-                android:textSize="@dimen/textInput"
-                android:textColor="@color/textBukaLapak"
-                android:layout_height="wrap_content" />
-
-            <android.support.v7.widget.AppCompatTextView
-                android:id="@+id/tvKategori"
-                android:layout_below="@+id/etNamaPesanan"
-                android:layout_marginTop="@dimen/_10sdp"
+            <TextView
+                android:id="@+id/txtDetailPesanan"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Kategori : "
-                android:textSize="@dimen/textBlack"
-                android:textColor="@color/textBlack"/>
-
-            <android.support.v7.widget.AppCompatSpinner
-                android:layout_width="@dimen/_200sdp"
-                android:layout_height="wrap_content"
-                android:id="@+id/spinnerKategori"
-                android:textSize="@dimen/textInput"
-                android:textColor="@color/textBukaLapak"
-                android:layout_below="@+id/tvKategori"
-                android:textColorHint="@color/textHint"
-                >
-            </android.support.v7.widget.AppCompatSpinner>
+                android:text="TextView" />
 
             <android.support.v7.widget.AppCompatTextView
                 android:id="@+id/tvHargaTawaran"
@@ -118,13 +94,13 @@
                 android:textColor="@color/textBlack"/>
 
             <EditText
-                android:id="@+id/etHargaPesanan"
-                android:layout_below="@+id/tvHargaTawaran"
-                android:textColorHint="@color/textHint"
+                android:id="@+id/etHargaBid"
                 android:layout_width="match_parent"
-                android:textSize="@dimen/textInput"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvHargaTawaran"
                 android:textColor="@color/textBukaLapak"
-                android:layout_height="wrap_content" />
+                android:textColorHint="@color/textHint"
+                android:textSize="@dimen/textInput" />
 
             <android.support.v7.widget.AppCompatTextView
                 android:id="@+id/tvDeskripsi"
@@ -148,20 +124,20 @@
 
             <android.support.v7.widget.AppCompatTextView
                 android:id="@+id/tvGambar"
-                android:layout_below="@+id/etDeskripsiBid"
-                android:layout_marginTop="@dimen/_10sdp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Masukkan Gambar Produk : "
-                android:textSize="@dimen/textBlack"
-                android:textColor="@color/textBlack"/>
+                android:layout_below="@+id/etDeskripsiBid"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:text="File Pendukung :"
+                android:textColor="@color/textBlack"
+                android:textSize="@dimen/textBlack" />
 
             <android.support.v7.widget.AppCompatButton
                 android:id="@+id/btnBrowse"
-                android:text="SELECT PICTURE"
-                android:layout_below="@+id/tvGambar"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvGambar"
+                android:text="SELECT FILE" />
 
             <ImageView
                 android:id="@+id/ivGambarPesanan"
@@ -188,16 +164,16 @@
                 android:layout_height="wrap_content" />
 
             <Button
-                android:id="@+id/btnSubmitPesanan"
-                android:text="Submit"
-                android:textStyle="bold"
-                android:theme="@style/styleButton"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:textSize="@dimen/textBlack"
-                android:layout_below="@+id/etLokasiBid"
+                android:id="@+id/btnSubmitBid"
                 android:layout_width="match_parent"
+                android:layout_height="@dimen/_60sdp"
+                android:layout_below="@+id/etLokasiBid"
+                android:layout_marginTop="@dimen/_10sdp"
                 android:padding="@dimen/_10sdp"
-                android:layout_height="@dimen/_60sdp" />
+                android:text="Submit"
+                android:textSize="@dimen/textBlack"
+                android:textStyle="bold"
+                android:theme="@style/styleButton" />
 
         </LinearLayout>
     </ScrollView>

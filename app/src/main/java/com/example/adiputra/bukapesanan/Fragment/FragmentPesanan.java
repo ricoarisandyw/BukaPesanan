@@ -14,6 +14,7 @@ import com.example.adiputra.bukapesanan.Activity.InputPesananActivity;
 import com.example.adiputra.bukapesanan.Activity.ListPesananActivity;
 import com.example.adiputra.bukapesanan.Activity.ListPesanankuActivity;
 import com.example.adiputra.bukapesanan.Activity.MainActivity;
+import com.example.adiputra.bukapesanan.Activity.listTawaranku;
 import com.example.adiputra.bukapesanan.R;
 import com.google.gson.Gson;
 
@@ -39,10 +40,11 @@ public class FragmentPesanan extends Fragment {
         final Button btnPesanan = (Button) view.findViewById(R.id.btnPesanan);
         Button btnListPesanan = (Button) view.findViewById(R.id.btnListPesanan);
         Button btnListPesananku = (Button) view.findViewById(R.id.btnListPesananku);
+//        Button btnProyekku = (Button) view.findViewById(R.id.btnProyekku);
+        Button btnTawaranku = (Button) view.findViewById(R.id.btnTawarkanku);
 
         MainActivity activity = (MainActivity) getActivity();
         final String USER_ID = activity.getMyData();
-
         btnPesanan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -51,7 +53,6 @@ public class FragmentPesanan extends Fragment {
                 startActivity(i);
             }
         });
-
         btnListPesanan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -59,7 +60,6 @@ public class FragmentPesanan extends Fragment {
                 startActivity(i);
             }
         });
-
         btnListPesananku.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -68,7 +68,13 @@ public class FragmentPesanan extends Fragment {
                 startActivity(i);
             }
         });
-
+        btnTawaranku.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity().getApplication(), listTawaranku.class);
+                startActivity(i);
+            }
+        });
         return view;
     }
 }

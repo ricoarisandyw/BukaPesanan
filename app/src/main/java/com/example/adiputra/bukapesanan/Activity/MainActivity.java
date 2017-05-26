@@ -9,6 +9,7 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
 import android.util.Base64;
 import android.util.Log;
@@ -42,7 +43,7 @@ import java.util.Map;
  * Created by Aji Guna on 08/05/2017.
  */
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mToggle;
@@ -50,6 +51,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private Toolbar mToolbar;
     private RequestQueue requestQueue;
     private Gson gson;
+
+    CardView cv;
 
     public static String USER_ID;
     public static String TOKEN;
@@ -70,6 +73,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rumah);
 
+        cv = (CardView)findViewById(R.id.cv);
         //Set the fragment initially
         FragmentPesanan fragment = new FragmentPesanan();
         FragmentTransaction fragmentTransaction =
@@ -203,5 +207,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         String data = prefs.getString(name,"");
         Log.d(name + " keluar:", data);
         return data;
+    }
+
+    public boolean hasResponse(){
+        return true;
     }
 }
