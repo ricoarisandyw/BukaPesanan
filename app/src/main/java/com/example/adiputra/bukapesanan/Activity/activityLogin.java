@@ -120,6 +120,7 @@ public class activityLogin extends AppCompatActivity {
                                     i.putExtra("userId",String.valueOf(mgu.getUser_id()));
                                     i.putExtra("userToken",mgu.getToken());
                                     startActivity(i);
+                                    finish();
                                 }
                             }catch(Exception e){
                                 e.printStackTrace();

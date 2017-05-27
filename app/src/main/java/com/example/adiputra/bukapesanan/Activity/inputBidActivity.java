@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -47,6 +48,15 @@ public class inputBidActivity extends AppCompatActivity {
         etDeskripsi = (EditText) findViewById(R.id.etDeskripsiBid);
         etLokasi = (EditText) findViewById(R.id.etLokasiBid);
         btnBid =  (Button) findViewById(R.id.btnSubmitBid);
+        ImageButton backBtn = (ImageButton) findViewById(R.id.btnBackBid);
+
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
         String idBid = getIntent().getStringExtra("id");
         String namaBid = getIntent().getStringExtra("nama");
         String lokasiBid = getIntent().getStringExtra("lokasi");

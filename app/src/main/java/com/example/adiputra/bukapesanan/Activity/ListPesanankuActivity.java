@@ -52,9 +52,7 @@ public class ListPesanankuActivity extends AppCompatActivity {
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(ListPesanankuActivity.this, MainActivity.class);
-                startActivity(i);
-                ListPesanankuActivity.this.finish();
+                finish();
             }
         });
 
@@ -124,11 +122,5 @@ public class ListPesanankuActivity extends AppCompatActivity {
             }
         };
         requestQueue.add(req);
-    }
-
-    @Override
-    public void onBackPressed(){
-        super.onBackPressed();
-        finish();
     }
 }
