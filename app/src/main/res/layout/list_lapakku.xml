@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:paddingTop="@dimen/_5sdp"
-    android:paddingLeft="@dimen/_5sdp"
-    android:paddingRight="@dimen/_5sdp"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent">
 
     <android.support.v7.widget.CardView
-        android:id="@+id/cv2"
+        android:id="@+id/cvLapakku"
         app:cardCornerRadius="2dp"
         app:cardElevation="2dp"
         app:cardPreventCornerOverlap="true"
@@ -23,13 +19,6 @@
             android:padding="@dimen/_5sdp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-
-            <TextView
-                android:id="@+id/tvTanggalPesanan2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_toLeftOf="@+id/tv1"
-                />
 
             <ImageView
                 android:layout_below="@+id/tvTanggalPesanan2"
@@ -95,29 +84,13 @@
                 android:text="Lokasi "/>
 
             <TextView
-                android:layout_toRightOf="@+id/tv4"
-                android:layout_below="@+id/tvKategoriProduk"
-                android:id="@+id/tvLokasiPesanan2"
+                android:id="@+id/tvDeskripsiProduk"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-            <TextView
-                android:id="@+id/tv5"
-                android:textStyle="bold"
-                android:layout_below="@+id/tv4"
-                android:layout_width="@dimen/_60sdp"
                 android:layout_height="wrap_content"
-                android:layout_toRightOf="@+id/ivImagePesanan2"
-                android:text="Deskripsi "/>
-
-            <TextView
-                android:layout_toRightOf="@+id/ivImagePesanan2"
                 android:layout_below="@+id/tv5"
-                android:id="@+id/tvDeskripsiPesanan2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_toRightOf="@+id/ivImagePesanan2" />
 
         </RelativeLayout>
     </android.support.v7.widget.CardView>
 
-</LinearLayout>
+</RelativeLayout>

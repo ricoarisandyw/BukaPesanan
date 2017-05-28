@@ -117,6 +117,8 @@ public class activityLogin extends AppCompatActivity {
                                     saveData("user_id", Integer.toString(mgu.getUser_id()));
                                     Toast.makeText(activityLogin.this, "Login berhasil", Toast.LENGTH_LONG).show();
                                     Intent i = new Intent(activityLogin.this, MainActivity.class);
+                                    saveData("user_id", String.valueOf(mgu.getUser_id()));
+                                    saveData("user_token", mgu.getToken());
                                     i.putExtra("userId",String.valueOf(mgu.getUser_id()));
                                     i.putExtra("userToken",mgu.getToken());
                                     startActivity(i);

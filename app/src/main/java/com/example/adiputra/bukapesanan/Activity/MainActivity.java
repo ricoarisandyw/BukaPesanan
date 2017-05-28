@@ -32,6 +32,7 @@ import com.example.adiputra.bukapesanan.Fragment.FragmentPengaturan;
 import com.example.adiputra.bukapesanan.Fragment.FragmentPesanan;
 import com.example.adiputra.bukapesanan.Fragment.FragmentProyek;
 import com.example.adiputra.bukapesanan.Model.ModelGetUserInfo;
+import com.example.adiputra.bukapesanan.Model.ModelProduk;
 import com.example.adiputra.bukapesanan.R;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

@@ -33,9 +33,9 @@ public class ListPesanankuAdapter extends RecyclerView.Adapter<ListPesanankuAdap
             super(itemView);
             cv2 = (CardView)itemView.findViewById(R.id.cv2);
             //ivListGambarPesanan = (ImageView)itemView.findViewById(R.id.ivListGambarPesanan);
-            tvListNamaPesananku = (TextView)itemView.findViewById(R.id.tvNamaPesanan2);
-            tvListKategoriPesananku = (TextView)itemView.findViewById(R.id.tvKategoriPesanan2);
-            tvListHargaPesananku = (TextView)itemView.findViewById(R.id.tvHargaPesanan2);
+            tvListNamaPesananku = (TextView)itemView.findViewById(R.id.tvNamaProduk);
+            tvListKategoriPesananku = (TextView)itemView.findViewById(R.id.tvKategoriProduk);
+            tvListHargaPesananku = (TextView)itemView.findViewById(R.id.tvHargaProduk);
             tvListDeskripsiPesananku = (TextView)itemView.findViewById(R.id.tvDeskripsiPesanan2);
             tvListLokasiPesananku = (TextView)itemView.findViewById(R.id.tvLokasiPesanan2);
             tvListTanggalPesananku = (TextView)itemView.findViewById(R.id.tvTanggalPesanan2);

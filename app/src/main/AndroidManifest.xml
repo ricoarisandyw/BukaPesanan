@@ -29,7 +29,8 @@
         <activity android:name=".Activity.ListPesananActivity" />
         <activity android:name=".Activity.ListPesanankuActivity" />
         <activity android:name=".Activity.inputBidActivity" />
-        <activity android:name=".Activity.listTawaranku"></activity>
+        <activity android:name=".Activity.listTawaranku" />
+        <activity android:name=".Activity.lapakkuActivity"></activity>
     </application>
 
 </manifest>
